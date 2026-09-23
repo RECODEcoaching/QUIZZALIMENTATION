@@ -1,0 +1,2748 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Quiz RECODE — Ta relation à l'alimentation</title>
+<meta name="description" content="14 questions pour comprendre ce qui se joue entre ton cadre alimentaire et tes écarts. 4 minutes, résultat immédiat.">
+<meta property="og:title" content="Contrôle, craquages, culpabilité.">
+<meta property="og:description" content="Tu t'entraînes dur et pourtant rien ne bouge. 14 questions sur ta relation à l'alimentation.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#141416">
+<script>
+/* ============================================================
+   THÈME — "dark" | "light" | "auto"
+   "auto" suit le réglage système de la visiteuse.
+   ============================================================ */
+var RECODE_THEME = "dark";
+(function(){
+  var t = RECODE_THEME;
+  if(t === "auto"){
+    t = (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light";
+  }
+  if(t === "light") document.documentElement.removeAttribute("data-theme");
+  else document.documentElement.setAttribute("data-theme", "dark");
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+/* ============================================================
+   RECODE Coaching — Quiz « Quelle sportive es-tu ? »
+   Palette : #7C3AED / #EDE9FE / #C4B5FD / #FAFAFA / #F5F5F7 / #1D1D1F / #6E6E73
+   Typo : Open Sans 400 / 600 / 700 / 800
+   ============================================================ */
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* --- Thème clair (défaut) --- */
+:root{
+  --violet:#7C3AED;
+  --lavande:#EDE9FE;
+  --lavande-mid:#C4B5FD;
+  --violet-dark:#5C3ABE;
+
+  --bg:#FAFAFA;
+  --bg-alt:#F5F5F7;
+  --surface:#FFFFFF;
+  --noir:#1D1D1F;
+  --gris:#6E6E73;
+  --line:rgba(0,0,0,0.09);
+  --line-strong:#D2D2D7;
+
+  --accent-text:#7C3AED;      /* eyebrows, valeurs chiffrées */
+  --soft-bg:#EDE9FE;          /* chips, note-box, option sélectionnée */
+  --soft-txt:#5C3ABE;
+  --track:#EDE9FE;            /* fonds de barres et de donut */
+  --low:#1D1D1F;              /* barre d'une zone sous 40 % */
+
+  --card-dark:#1D1D1F;
+  --card-dark-border:1px solid transparent;
+  --header-bg:rgba(250,250,250,0.92);
+  --btn-border:1px solid transparent;
+  --placeholder:#A1A1A6;
+}
+
+/* --- Thème sombre — aligné sur la landing RECODE (#141416) --- */
+:root[data-theme="dark"]{
+  --bg:#141416;
+  --bg-alt:#1B1B20;
+  --surface:rgba(255,255,255,0.045);
+  --noir:#FFFFFF;             /* le "texte principal" devient blanc */
+  --gris:#9A9AA2;
+  --line:rgba(196,181,253,0.14);
+  --line-strong:rgba(196,181,253,0.32);
+
+  --accent-text:#C4B5FD;      /* règle branding : accents en C4B5FD sur fond dark */
+  --soft-bg:rgba(124,58,237,0.16);
+  --soft-txt:#C4B5FD;
+  --track:rgba(196,181,253,0.16);
+  --low:#C4B5FD;
+
+  --card-dark:linear-gradient(180deg,#221F2B,#17161B);
+  --card-dark-border:1px solid rgba(196,181,253,0.18);
+  --header-bg:rgba(20,20,22,0.86);
+  --btn-border:1px solid rgba(255,255,255,0.16);
+  --placeholder:#7E7E88;
+}
+
+html{-webkit-text-size-adjust:100%}
+
+body{
+  font-family:'Open Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  background:var(--bg);
+  color:var(--noir);
+  font-size:16px;
+  font-weight:400;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;display:none}
+:root[data-theme="dark"] body::before{
+  display:block;
+  background:radial-gradient(46% 38% at 12% 2%,rgba(124,58,237,.17),transparent 62%),
+             radial-gradient(44% 42% at 92% 99%,rgba(109,40,217,.14),transparent 62%);
+}
+body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;display:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+:root[data-theme="dark"] body::after{display:block}
+.site-header,main,.site-footer{position:relative;z-index:1}
+
+/* Focus clavier visible — absent jusqu'ici */
+.btn:focus-visible,.opt:focus-visible{
+  outline:2px solid var(--accent-text);outline-offset:3px}
+
+.wrap{width:100%;max-width:640px;margin:0 auto;padding:0 20px}
+
+/* ---------- Header ---------- */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:var(--header-bg);
+  backdrop-filter:saturate(180%) blur(14px);
+  -webkit-backdrop-filter:saturate(180%) blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--noir)}
+.brand img{height:26px;width:auto;display:block}
+.brand .wordmark{font-size:15px;font-weight:800;letter-spacing:-0.02em}
+.brand .handle{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gris)}
+
+/* ---------- Typo ---------- */
+h1{font-size:36px;font-weight:800;letter-spacing:-0.035em;line-height:1.02}
+h2{font-size:28px;font-weight:800;letter-spacing:-0.028em;line-height:1.08}
+h3{font-size:19px;font-weight:700;letter-spacing:-0.01em;line-height:1.3}
+.eyebrow{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.16em;color:var(--accent-text)}
+.eyebrow.muted{color:var(--gris)}
+.lead{font-size:17.5px;color:var(--gris);line-height:1.65;max-width:30em}
+.small{font-size:13.5px;color:var(--gris);line-height:1.65;max-width:34em}
+.tiny{font-size:11.5px;color:var(--gris);line-height:1.6;max-width:38em}
+/* Mesure de ligne : au-delà de ~65 caractères l'oeil décroche */
+.measure{max-width:33em}
+.accent-line{width:28px;height:3px;border-radius:2px;background:var(--violet)}
+
+/* ---------- Boutons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  min-height:52px;padding:14px 26px;
+  font-family:inherit;font-size:15px;font-weight:700;letter-spacing:-0.01em;
+  border:none;border-radius:10px;cursor:pointer;text-decoration:none;
+  transition:transform .16s ease,opacity .16s ease,background .16s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.btn:active{transform:scale(0.985)}
+.btn-primary{background:var(--violet);color:#fff;border:var(--btn-border)}
+.btn-primary:hover{background:#6D2FD9}
+.btn-ghost{background:transparent;color:var(--gris);min-height:44px;padding:10px 4px;font-size:13px;font-weight:700}
+.btn-soft{background:var(--soft-bg);color:var(--soft-txt);border:1px solid rgba(124,58,237,.22)}
+.btn-block{width:100%}
+/* Désactivé : pas une opacité, un état lisible — sinon le texte disparaît */
+.btn[disabled]{pointer-events:none;opacity:1;background:var(--bg-alt);color:var(--gris);
+  border:1px solid var(--line);box-shadow:none;animation:none}
+.btn[disabled]::after{display:none}
+
+/* CTA d'ouverture et CTA WhatsApp. Ils dominent par la couleur et la taille,
+   jamais par le mouvement : aucun reflet, aucun halo clignotant. */
+.btn-hero{position:relative;border:none}
+:root:not([data-theme="dark"]) .btn-hero{box-shadow:0 6px 20px rgba(124,58,237,.20)}
+:root[data-theme="dark"] .btn-hero{box-shadow:0 8px 28px rgba(124,58,237,.32)}
+.btn-hero:hover{box-shadow:0 10px 32px rgba(124,58,237,.38)}
+
+/* ---------- Écrans ---------- */
+.screen{display:none;padding:40px 0 64px}
+.screen.is-active{display:block;animation:screenIn .42s cubic-bezier(.22,.9,.3,1) both}
+@keyframes screenIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* ---------- Intro ---------- */
+#intro{padding-top:52px}
+#intro h1{margin:18px 0 0}
+#intro h1 .ln{display:block}
+#intro h1 .em{display:block;color:var(--accent-text)}
+#intro .lead{margin-top:18px}
+#intro .cta-zone{margin-top:32px}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chip{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--soft-bg);border-radius:6px;padding:6px 11px;
+  font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.09em;color:var(--soft-txt);
+}
+.chip .dot{width:5px;height:5px;border-radius:50%;background:var(--accent-text);flex:none}
+.intro-card{
+  margin-top:36px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px;
+}
+.intro-card ul{list-style:none;margin-top:14px;display:grid;gap:11px}
+.intro-card li{position:relative;padding-left:18px;font-size:14.5px;line-height:1.6}
+.intro-card li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--accent-text)}
+
+/* ---------- Progression ---------- */
+.progress-shell{position:sticky;top:56px;z-index:40;background:var(--header-bg);
+  backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);
+  padding:16px 0 14px}
+.progress-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:9px}
+.progress-track{height:3px;background:var(--track);border-radius:2px;overflow:hidden}
+.progress-fill{height:100%;width:0;background:var(--violet);border-radius:2px;transition:width .45s cubic-bezier(.22,.9,.3,1)}
+
+/* ---------- Questions ---------- */
+.q-head{margin:26px 0 22px}
+.q-head h2{margin-top:12px}
+.q-hint{margin-top:10px;font-size:13.5px;color:var(--gris);line-height:1.6}
+.row-label{
+  font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;
+  color:var(--gris);margin:26px 0 10px;
+}
+.row-label:first-child{margin-top:0}
+.group-hint{font-size:12.5px;color:var(--gris);line-height:1.55;margin:-4px 0 12px;max-width:32em}
+.options{display:grid;gap:9px}
+.opt{
+  position:relative;display:flex;align-items:center;gap:12px;width:100%;
+  min-height:54px;padding:13px 16px;text-align:left;
+  font-family:inherit;font-size:15px;font-weight:600;line-height:1.45;color:var(--noir);
+  background:var(--surface);border:1px solid var(--line);border-radius:10px;cursor:pointer;
+  transition:border-color .15s ease,background .15s ease,transform .12s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.opt:hover{border-color:var(--lavande-mid)}
+.opt:active{transform:scale(0.99)}
+.opt .mark{
+  flex:none;width:18px;height:18px;border:1.5px solid var(--line-strong);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;transition:all .15s ease;
+}
+.opt[data-shape="square"] .mark{border-radius:5px}
+.opt .mark span{width:8px;height:8px;border-radius:50%;background:var(--violet);transform:scale(0);transition:transform .18s cubic-bezier(.3,1.4,.5,1)}
+.opt[data-shape="square"] .mark span{border-radius:2px}
+.opt.is-selected{border-color:var(--violet);background:var(--soft-bg)}
+.opt.is-selected .mark{border-color:var(--violet)}
+.opt.is-selected .mark span{transform:scale(1)}
+.opt.is-neutral{background:var(--bg-alt)}
+.opt.is-neutral.is-selected{background:var(--soft-bg)}
+.opt .rank-badge{
+  flex:none;width:22px;height:22px;border-radius:6px;background:var(--violet);color:#fff;
+  font-size:11px;font-weight:800;display:none;align-items:center;justify-content:center;
+}
+.opt.is-ranked .rank-badge{display:flex}
+.opt.is-ranked .mark{display:none}
+.opt.is-ranked{border-color:var(--violet);background:var(--soft-bg)}
+.opt-sep{height:1px;background:var(--line);margin:6px 2px}
+
+/* Chaque question demande maintenant un clic sur "Continuer" :
+   la barre reste collée en bas pour ne jamais obliger à scroller pour la trouver. */
+.q-nav{
+  position:sticky;bottom:0;z-index:30;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  margin:30px -20px 0;
+  padding:34px 20px calc(16px + env(safe-area-inset-bottom));
+  /* Fondu vers le fond plutôt qu'un flou : rien ne transparaît sous le bouton */
+  background:linear-gradient(to top,var(--bg) 0%,var(--bg) 64%,transparent 100%);
+}
+.q-nav .btn-primary{flex:1}
+
+/* ---------- Écran d'analyse ---------- */
+#analysis{padding-top:120px}
+.an-steps{list-style:none;margin-top:40px;display:grid;gap:0}
+.an-steps li{
+  display:flex;align-items:center;gap:14px;padding:15px 0;
+  font-size:15px;font-weight:600;color:var(--gris);
+  border-top:1px solid var(--line);
+  opacity:.32;transform:translateY(6px);
+  transition:opacity .45s ease,transform .45s ease,color .45s ease;
+}
+.an-steps li:last-child{border-bottom:1px solid var(--line)}
+.an-steps li.is-on{opacity:1;transform:none;color:var(--noir)}
+.an-steps .tick{
+  flex:none;width:20px;height:20px;border-radius:50%;
+  border:1.5px solid var(--line-strong);
+  display:flex;align-items:center;justify-content:center;
+  transition:border-color .3s ease,background .3s ease;
+}
+.an-steps .tick::after{
+  content:"";width:7px;height:7px;border-radius:50%;background:var(--accent-text);
+  transform:scale(0);transition:transform .34s cubic-bezier(.3,1.5,.5,1);
+}
+.an-steps li.is-on .tick{border-color:var(--accent-text)}
+.an-steps li.is-on .tick::after{transform:scale(1)}
+
+/* ---------- Résultats ---------- */
+#results{padding-top:34px}
+.res-block{margin-bottom:44px}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s cubic-bezier(.22,.9,.3,1)}
+.reveal.is-in{opacity:1;transform:none}
+
+.profile-card{background:var(--card-dark);border:var(--card-dark-border);border-radius:12px;padding:30px 24px 28px;color:#fff}
+.profile-card .profile-logo{display:block;height:66px;width:auto;margin-bottom:24px;opacity:.95}
+@media (min-width:600px){.profile-card .profile-logo{height:70px}}
+.profile-card .accent-line{background:var(--lavande-mid)}
+.profile-card .eyebrow{color:var(--lavande-mid);margin-top:16px;display:block}
+.profile-card h1{margin-top:10px;font-size:31px;color:#fff}
+.profile-card .tagline{margin-top:16px;font-size:18px;font-weight:700;font-style:italic;line-height:1.4;color:var(--lavande-mid)}
+
+.donut-wrap{display:flex;align-items:center;gap:26px;background:transparent;border:none;padding:8px 0 4px}
+.donut{position:relative;flex:none;width:124px;height:124px}
+.donut svg{transform:rotate(-90deg)}
+.donut .track{fill:none;stroke:var(--track);stroke-width:11}
+.donut .bar{fill:none;stroke:var(--violet);stroke-width:11;stroke-linecap:butt;transition:stroke-dashoffset 1.5s cubic-bezier(.22,.9,.3,1)}
+.donut .center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.donut .center b{font-size:29px;font-weight:800;letter-spacing:-0.04em;line-height:1;font-variant-numeric:tabular-nums}
+.donut .center span{font-size:9.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gris);margin-top:5px}
+.donut-legend{display:grid;gap:14px}
+.donut-legend .item{display:flex;align-items:flex-start;gap:9px}
+.donut-legend .sq{flex:none;width:9px;height:9px;border-radius:2px;margin-top:6px}
+.donut-legend .sq.on{background:var(--violet)}
+.donut-legend .sq.off{background:var(--track)}
+.donut-legend .txt b{display:block;font-size:15px;font-weight:800;letter-spacing:-0.01em}
+.donut-legend .txt span{font-size:12.5px;color:var(--gris);line-height:1.5}
+
+.zones{display:grid;gap:4px;margin-top:26px}
+.zone{padding:16px 0;border-top:1px solid var(--line);transition:opacity .4s ease}
+.zone:first-child{border-top:none}
+.zone.is-muted{opacity:.46}
+.zone.is-focus .zone-name{font-size:17.5px;letter-spacing:-0.02em}
+.zone.is-focus .zone-val{font-size:15px}
+.zone.is-focus .zone-track{height:11px}
+.zone .zone-flag{
+  display:block;font-size:9.5px;font-weight:700;text-transform:uppercase;
+  letter-spacing:0.16em;color:var(--accent-text);margin-bottom:7px;
+}
+.zone .zone-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:9px}
+.zone .zone-name{font-size:14.5px;font-weight:700;letter-spacing:-0.01em}
+.zone .zone-val{font-size:13px;font-weight:800;color:var(--accent-text);font-variant-numeric:tabular-nums}
+.zone .zone-val.is-low{color:var(--low)}
+.zone .zone-track{height:8px;background:var(--track);border-radius:4px;overflow:hidden}
+.zone .zone-bar{height:100%;width:0;background:var(--violet);border-radius:4px;transition:width 1.15s cubic-bezier(.22,.9,.3,1)}
+.zone .zone-bar.is-low{background:var(--low)}
+.zone .zone-note{font-size:12px;color:var(--gris);margin-top:7px;line-height:1.5}
+.zones-legend{margin-top:18px;padding:14px 16px;background:var(--bg-alt);border-radius:10px}
+
+/* ---------- Alerte signal ---------- */
+.alert{border-left:2px solid var(--accent-text);border-radius:0;padding:2px 0 2px 18px;margin-bottom:22px;
+  background:transparent}
+.alert .eyebrow{display:block;margin-bottom:7px;font-size:9.5px}
+.alert h3{font-size:15.5px;font-weight:800;letter-spacing:-.015em;line-height:1.35;margin-bottom:8px;max-width:26em}
+.alert p{font-size:14px;line-height:1.62;color:var(--gris);max-width:32em}
+.alert .alert-legal{font-size:12px;color:var(--gris);opacity:.75;font-style:italic;margin-top:9px}
+
+
+/* Traitement éditorial : pas de cadre, du vide et une hairline.
+   Le cadre est un aveu de faiblesse de mise en page. */
+.ed-block{padding:30px 0;border-top:1px solid var(--line)}
+.ed-block:first-child{border-top:none;padding-top:14px}
+.ed-block .eyebrow{display:block;margin-bottom:12px}
+.ed-block p{font-size:17px;line-height:1.6;color:var(--noir);letter-spacing:-0.005em;max-width:32em}
+
+.actions-list{margin-top:26px}
+
+/* ---------- Trois chantiers ---------- */
+.chantier{display:flex;gap:20px;align-items:flex-start;padding:28px 0;border-top:1px solid var(--line)}
+.chantier:first-of-type{border-top:none}
+.chantier .num{flex:none;width:34px;font-size:32px;font-weight:800;line-height:.9;
+  letter-spacing:-.04em;color:var(--accent-text);opacity:.32}
+.chantier h3{font-size:19px;font-weight:800;letter-spacing:-.02em;line-height:1.25;margin-bottom:10px;max-width:26em}
+.chantier p{font-size:15px;line-height:1.68;color:var(--gris);max-width:31em}
+.wall{margin-top:26px;padding:22px 0 0;border-top:2px solid var(--accent-text)}
+.wall p{font-size:15.5px;line-height:1.65;color:var(--noir);max-width:32em;font-weight:600}
+
+/* ---------- Champs du CTA ---------- */
+.wa-fields{margin-top:24px}
+.wa-label{display:block;font-size:10.5px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.14em;color:var(--lavande-mid);margin:0 0 7px}
+.wa-fields input+.wa-label{margin-top:14px}
+.wa-fields input{width:100%;min-height:48px;padding:12px 15px;
+  font-family:inherit;font-size:16px;font-weight:600;color:#fff;
+  background:rgba(255,255,255,.06);border:1px solid rgba(196,181,253,.22);border-radius:9px;
+  transition:border-color .15s ease,background .15s ease}
+.wa-fields input:focus{outline:none;border-color:var(--lavande-mid);background:rgba(255,255,255,.1)}
+.wa-fields input::placeholder{color:rgba(255,255,255,.32);font-weight:400}
+.cta-card .btn-hero{margin-top:20px}
+
+/* Aperçu vivant : elle voit se composer ce qu'elle va envoyer */
+.wa-prev-label{margin-top:22px;font-size:10.5px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.14em;color:var(--lavande-mid)}
+.wa-bubble{position:relative;margin-top:9px;padding:14px 16px 15px;
+  background:rgba(196,181,253,.09);border:1px solid rgba(196,181,253,.18);
+  border-radius:12px 12px 12px 3px;
+  font-size:13.5px;line-height:1.62;color:rgba(255,255,255,.9)}
+.wa-caret{display:inline-block;width:1px;margin-left:1px;color:var(--lavande-mid);
+  animation:caret 1.05s step-end infinite}
+@keyframes caret{0%,100%{opacity:1}50%{opacity:0}}
+.wa-bubble .fill{color:var(--lavande-mid);font-weight:700}
+.cta-card .wa-note{margin-top:11px;color:rgba(255,255,255,.5)}
+.ed-action{display:flex;gap:20px;align-items:flex-start;padding:28px 0;border-top:1px solid var(--line)}
+.ed-action:first-child{border-top:none}
+.ed-action .num{
+  flex:none;width:34px;font-size:32px;font-weight:800;line-height:.9;
+  letter-spacing:-0.04em;color:var(--accent-text);opacity:.32;
+}
+.ed-action p{font-size:15.5px;line-height:1.68;color:var(--noir);max-width:31em}
+
+/* Dernier bloc coloré ramené au même traitement que le reste : un filet, pas un aplat */
+.note-box{background:transparent;border:none;border-left:2px solid var(--accent-text);
+  border-radius:0;padding:4px 0 4px 20px;margin-top:30px}
+.note-box p{font-size:14px;line-height:1.7;color:var(--gris);max-width:32em;font-style:italic}
+.note-box p+p{margin-top:10px}
+
+/* ---------- CTA ---------- */
+.cta-card{background:var(--card-dark);border:var(--card-dark-border);border-radius:12px;padding:30px 24px}
+.cta-card .accent-line{background:var(--lavande-mid)}
+.cta-card .eyebrow{color:var(--lavande-mid);display:block;margin:16px 0 10px}
+.cta-card h2{color:#fff;font-size:24px}
+.cta-card p{font-size:14.5px;color:#fff;opacity:.72;margin-top:14px;line-height:1.65}
+.cta-card .btn-primary{margin-top:24px}
+/* ---------- Bloc coordonnées, intégré à l'accueil ----------
+   Volontairement plus discret que le reste : petits champs, libellés
+   en micro-capitales, aucun aplat. Il accompagne le CTA, il ne le
+   concurrence pas. */
+.id-card{margin-top:26px;background:var(--surface);border:1px solid var(--line);
+  border-radius:12px;padding:20px}
+.id-intro{font-size:13.5px;line-height:1.6;color:var(--gris);max-width:32em;margin-bottom:18px}
+.id-intro b{color:var(--noir);font-weight:700}
+.id-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.id-field{margin-top:12px}
+.id-grid .id-field,.id-card .id-field:first-of-type{margin-top:0}
+.id-label{display:block;font-size:9.5px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.14em;color:var(--gris);margin-bottom:6px}
+.id-label .why{text-transform:none;letter-spacing:0;font-size:11px;font-weight:600;
+  color:var(--accent-text)}
+.id-card input,.id-card select{
+  width:100%;min-height:44px;padding:10px 13px;
+  font-family:inherit;font-size:15px;font-weight:600;color:var(--noir);
+  background:var(--bg-alt);border:1px solid var(--line);border-radius:8px;
+  -webkit-appearance:none;appearance:none;transition:border-color .15s ease}
+.id-card input:focus,.id-card select:focus{outline:none;border-color:var(--violet)}
+.id-card input::placeholder{color:var(--placeholder);font-weight:400}
+.id-tel-row{display:grid;grid-template-columns:96px 1fr;gap:8px}
+.id-card select{font-size:14px;background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);
+  background-position:calc(100% - 17px) 19px,calc(100% - 12px) 19px;
+  background-size:5px 5px,5px 5px;background-repeat:no-repeat;padding-right:30px}
+.id-note{font-size:11.5px;line-height:1.55;color:var(--gris);margin-top:10px;max-width:34em}
+
+/* Le "pourquoi" du numéro : c'est la contrepartie, elle doit se voir. */
+.id-gift{margin-top:18px;background:var(--soft-bg);border-radius:10px;padding:16px 18px}
+.id-gift .eyebrow{display:block;margin-bottom:9px}
+.id-gift p{font-size:14px;font-weight:600;line-height:1.55;color:var(--noir);max-width:32em}
+.id-gift ul{list-style:none;margin:11px 0 0;display:grid;gap:7px}
+.id-gift li{position:relative;padding-left:16px;font-size:13.5px;line-height:1.5;color:var(--noir)}
+.id-gift li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;
+  border-radius:50%;background:var(--accent-text)}
+.id-gift .id-note{margin-top:12px;color:var(--gris)}
+.id-err{display:none;font-size:12px;font-weight:600;color:#D9455F;margin-top:14px}
+:root[data-theme="dark"] .id-err{color:#FF8095}
+.id-err.on{display:block}
+
+/* ---------- Bloc appel (masqué par défaut) ---------- */
+#call-block{display:none}
+
+/* ---------- Footer ---------- */
+.site-footer{border-top:1px solid var(--line);margin-top:20px;padding:26px 0 40px}
+.site-footer .tiny+.tiny{margin-top:8px}
+.site-footer a{color:var(--gris)}
+
+/* ---------- Responsive ---------- */
+@media (min-width:600px){
+  h1{font-size:52px}
+  .profile-card h1{font-size:46px}
+  h2{font-size:36px}
+  .ed-action .num,.chantier .num{font-size:40px;width:44px}
+  #analysis{padding-top:150px}
+  #intro{padding-top:64px}
+  .screen{padding:48px 0 72px}
+  .profile-card,.cta-card{padding:36px 32px}
+  .intro-card{padding:28px}
+}
+@media (max-width:359px){
+  h1{font-size:29px}
+  .opt{font-size:14.2px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
+}
+
+
+/* ============================================================
+   Quiz alimentation — ajouts spécifiques
+   ============================================================ */
+
+/* Titre d'accueil long : trois lignes, il doit rester au-dessus de la ligne
+   de flottaison sans écraser le formulaire. */
+#intro h1.h1-long{font-size:31px;line-height:1.1;letter-spacing:-0.03em}
+#intro h1.h1-long .ln+.ln{margin-top:2px}
+@media (min-width:600px){ #intro h1.h1-long{font-size:42px} }
+@media (max-width:359px){ #intro h1.h1-long{font-size:26px} }
+
+/* ---------- La boucle ---------- */
+.loop-wrap{margin-top:24px}
+.loop-svg{display:block;width:100%;height:auto;max-width:430px;margin:0 auto}
+.loop-svg .ring{fill:none;stroke:var(--line-strong);stroke-width:2}
+.loop-svg .arrow{fill:var(--lavande-mid)}
+.loop-svg .node circle{fill:var(--bg-alt);stroke:var(--line-strong);stroke-width:1.5}
+.loop-svg .node text{font-family:'Open Sans',sans-serif;font-size:11.5px;font-weight:700;
+  fill:var(--gris);text-anchor:middle;letter-spacing:.01em}
+.loop-svg .node.is-here circle{fill:var(--violet);stroke:var(--violet)}
+.loop-svg .node.is-here text{fill:var(--accent-text);font-weight:800}
+.loop-svg .node.is-here .halo{fill:none;stroke:var(--violet);stroke-width:1.5;opacity:.3}
+.loop-caption{margin-top:20px;padding-left:18px;border-left:2px solid var(--accent-text)}
+.loop-caption .eyebrow{display:block;margin-bottom:8px}
+.loop-caption p{font-size:16px;line-height:1.62;color:var(--noir);max-width:32em}
+.loop-caption p+p{margin-top:10px}
+
+/* ---------- Déclencheurs : corps / tête ---------- */
+.trig-grid{display:grid;gap:0;margin-top:20px}
+.trig-col{padding:22px 0;border-top:1px solid var(--line)}
+.trig-col:first-child{border-top:none;padding-top:8px}
+.trig-col .eyebrow{display:block;margin-bottom:12px}
+.trig-col ul{list-style:none;display:grid;gap:9px}
+.trig-col li{position:relative;padding-left:18px;font-size:15px;line-height:1.55;color:var(--noir);max-width:32em}
+.trig-col li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;
+  border-radius:50%;background:var(--accent-text)}
+.trig-col p.none{font-size:14.5px;color:var(--gris);line-height:1.6;max-width:32em}
+.trig-read{margin-top:22px;padding:2px 0 2px 16px;border-left:2px solid var(--line-strong)}
+.trig-read p{font-size:14px;line-height:1.6;color:var(--gris);max-width:32em;font-style:italic}
+@media (min-width:600px){
+  .trig-grid{grid-template-columns:1fr 1fr;gap:28px}
+  .trig-col{border-top:none;border-left:1px solid var(--line);padding:0 0 0 22px}
+  .trig-col:first-child{border-left:none;padding-left:0}
+}
+
+/* ---------- Le levier (après l'écart) ---------- */
+.lever{margin-top:20px}
+.lever .step{display:flex;gap:18px;align-items:flex-start;padding:20px 0;border-top:1px solid var(--line)}
+.lever .step:first-child{border-top:none}
+.lever .step .tag{flex:none;width:74px;font-size:10px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.13em;color:var(--accent-text);padding-top:5px}
+.lever .step p{font-size:15.5px;line-height:1.62;color:var(--noir);max-width:29em}
+.lever .step p .said{color:var(--gris)}
+
+/* ---------- Écran sortie ---------- */
+#stop{padding-top:56px}
+#stop .stop-card{background:var(--card-dark);border:var(--card-dark-border);border-radius:12px;
+  padding:32px 24px;color:#fff}
+#stop .stop-card h1{font-size:28px;color:#fff;margin-top:16px;letter-spacing:-.03em}
+#stop .stop-card .accent-line{background:var(--lavande-mid)}
+#stop .stop-card .eyebrow{color:var(--lavande-mid);display:block;margin-top:16px}
+#stop .stop-card .tagline{margin-top:16px;font-size:18px;font-weight:700;font-style:italic;
+  line-height:1.4;color:var(--lavande-mid)}
+#stop .stop-body p{font-size:16.5px;line-height:1.68;color:var(--noir);max-width:32em;margin-top:22px}
+#stop .stop-body p.small{font-size:14px;color:var(--gris)}
+#stop .cta-card{margin-top:34px}
+@media (min-width:600px){
+  #stop .stop-card{padding:38px 32px}
+  #stop .stop-card h1{font-size:38px}
+}
+
+/* ---------- Cadeau, rappel ---------- */
+.gift-pending{margin-top:16px;padding:14px 16px;background:var(--soft-bg);border-radius:10px}
+.gift-pending .eyebrow{display:block;margin-bottom:7px}
+.gift-pending p{font-size:14px;font-weight:600;line-height:1.55;color:var(--noir);max-width:32em}
+
+/* ---------- Listes de résultat ---------- */
+.plist{list-style:none;display:grid;gap:0;margin-top:18px}
+.plist li{position:relative;padding:15px 0 15px 26px;border-top:1px solid var(--line);
+  font-size:16px;line-height:1.6;color:var(--noir);max-width:34em}
+.plist li:first-child{border-top:none}
+.plist li::before{content:"";position:absolute;left:0;top:27px;width:12px;height:2px;border-radius:1px;background:var(--accent-text)}
+.plist.is-errors li::before{width:8px;height:8px;top:23px;border-radius:50%;background:transparent;border:1.5px solid var(--accent-text)}
+.evidence{margin-top:18px;padding:2px 0 2px 16px;border-left:2px solid var(--line-strong)}
+.evidence .eyebrow{display:block;margin-bottom:8px}
+.evidence p{font-size:14px!important;line-height:1.55!important;color:var(--gris)!important;font-style:italic}
+.evidence p+p{margin-top:6px}
+.zone.is-flagged .zone-name{font-size:16.5px;letter-spacing:-0.02em}
+.zone.is-flagged .zone-track{height:10px}
+.reminder{margin-top:14px;padding-left:14px;border-left:2px solid var(--accent-text)}
+#back-btn{min-width:64px}
+input:focus-visible,select:focus-visible,a:focus-visible,#q-title:focus-visible{
+  outline:2px solid var(--accent-text);outline-offset:3px}
+#q-title:focus:not(:focus-visible){outline:none}
+
+/* Nom de la ressource offerte + son sous-titre */
+.id-gift p.id-sub{
+  margin-top:3px;font-size:13px;font-weight:400;font-style:italic;color:var(--gris);
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#" id="brand-link">
+      <span class="wordmark">RECODE</span>
+    </a>
+    <span class="handle">@indianaafit</span>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ ÉCRAN ACCUEIL ============ -->
+<section class="screen is-active" id="intro">
+  <div class="wrap">
+    <div class="accent-line"></div>
+    <h1 class="h1-long"><span class="ln">Contrôle, craquages, culpabilité.</span><span class="ln">Tu t'entraînes dur et pourtant…</span><span class="em">rien ne bouge.</span></h1>
+    <p class="lead">Tu es sérieuse partout ailleurs. C'est là que ça coince, et tu ne sais pas pourquoi. 14 questions sur ce que tu t'imposes, sur ce que la nourriture vient calmer et sur ce qui se passe juste après — pour voir clairement ce qui se joue chez toi.</p>
+
+    <div class="meta-row">
+      <span class="chip"><span class="dot"></span>5 minutes</span>
+      <span class="chip"><span class="dot"></span>14 questions</span>
+      <span class="chip"><span class="dot"></span>Résultat immédiat</span>
+    </div>
+
+    <div class="intro-card">
+      <div class="accent-line"></div>
+      <p class="eyebrow" style="margin-top:13px;display:block">Ce que tu obtiens</p>
+      <h3 style="margin-top:9px">De la clarté, pas un verdict.</h3>
+      <ul>
+        <li>Ton profil alimentaire, parmi six — chacun avec son angle mort.</li>
+        <li>Six zones : tes règles, tes apports, ta charge émotionnelle, ce que tu fais après un écart, tes croyances et tes repas partagés.</li>
+        <li>Ce qui se passe juste avant — dans ton corps et dans ta tête, séparément.</li>
+        <li>Ce que la nourriture vient calmer chez toi, et ce qu'il en reste après.</li>
+        <li>L'endroit exact où la boucle se referme, sur un schéma.</li>
+        <li>Trois chantiers, dans l'ordre où ils comptent pour toi.</li>
+      </ul>
+    </div>
+
+    <div class="id-card">
+      <div class="id-grid">
+        <div class="id-field">
+          <label class="id-label" for="id-prenom">Prénom</label>
+          <input type="text" id="id-prenom" autocomplete="given-name" placeholder="Camille" maxlength="40">
+        </div>
+        <div class="id-field">
+          <label class="id-label" for="id-nom">Nom</label>
+          <input type="text" id="id-nom" autocomplete="family-name" placeholder="Durand" maxlength="60">
+        </div>
+      </div>
+
+      <div class="id-field">
+        <label class="id-label" for="id-tel">Numéro WhatsApp <span class="why" id="id-why">— c'est là que je t'envoie La Grille 7 jours</span></label>
+        <div class="id-tel-row">
+          <select id="id-indicatif" aria-label="Indicatif">
+            <option value="33" selected>+33</option>
+            <option value="32">+32</option>
+            <option value="41">+41</option>
+            <option value="1">+1</option>
+            <option value="352">+352</option>
+            <option value="">Autre</option>
+          </select>
+          <input type="tel" id="id-tel" inputmode="tel" autocomplete="tel" placeholder="6 12 34 56 78" maxlength="22">
+        </div>
+      </div>
+
+      <!-- Le cadeau : voir cadeau-semaine.html, à héberger et à envoyer
+           sur WhatsApp après le résultat. Trois endroits si tu le changes :
+           ce bloc, le libellé id="id-why" ci-dessus, et id="gift-reminder"
+           dans l'écran de résultat. -->
+      <div class="id-gift" id="id-gift">
+        <span class="eyebrow">En plus de ton résultat</span>
+        <p>La Grille 7 jours.</p>
+        <p class="id-sub">« La semaine où tu ne changes rien »</p>
+        <ul>
+          <li>Sept jours d'observation, une minute par soir</li>
+          <li>Au bout des sept jours, tu vois ce qui revient juste avant que ça bascule</li>
+          <li>Aucun chiffre, aucune pesée, rien à corriger</li>
+          <li>Quand c'est rempli, tu me l'envoies et je te dis ce que j'y vois</li>
+        </ul>
+        <p class="id-note">Je te l'envoie sur WhatsApp. C'est moi qui écris, une par une — laisse-moi le temps d'arriver jusqu'à toi.</p>
+      </div>
+
+      <p class="id-err" id="id-err" role="alert"></p>
+    </div>
+
+    <div class="cta-zone">
+      <button class="btn btn-primary btn-hero btn-block" id="start-btn" type="button">Aide-moi à comprendre</button>
+      <p class="id-note" style="margin-top:12px">Ton prénom et ton nom me servent juste à savoir à qui je réponds. Rien n'est revendu ni transmis.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ ÉCRAN QUIZ ============ -->
+<section class="screen" id="quiz">
+  <div class="progress-shell">
+    <div class="wrap">
+      <div class="progress-head">
+        <span class="eyebrow muted" id="progress-label">Question 1 / 14</span>
+        <span class="eyebrow" id="progress-pct">7 %</span>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div id="question-host"></div>
+    <div class="q-nav">
+      <button class="btn btn-ghost" id="back-btn" type="button">Retour</button>
+      <button class="btn btn-primary" id="next-btn" type="button">Continuer</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ÉCRAN D'ANALYSE ============ -->
+<section class="screen" id="analysis">
+  <div class="wrap">
+    <div class="accent-line"></div>
+    <p class="eyebrow" style="margin-top:14px">Analyse en cours</p>
+    <h2 style="margin-top:10px">On croise tes réponses.</h2>
+    <p class="small" style="margin-top:12px">Aucune réponse n'est lue seule. Une règle isolée ne dit rien ; c'est ce qu'elle produit ensuite qui compte.</p>
+    <ul class="an-steps" id="an-steps"></ul>
+  </div>
+</section>
+
+<!-- ============ ÉCRAN SORTIE ============ -->
+<section class="screen" id="stop">
+  <div class="wrap">
+    <div class="stop-card">
+      <div class="accent-line"></div>
+      <span class="eyebrow">Ce que tes réponses montrent</span>
+      <h1>Ce n'est pas dans l'assiette que ça se règle.</h1>
+      <p class="tagline" id="stop-tagline">Ce qui se joue chez toi est installé plus profond — et ça se travaille.</p>
+    </div>
+
+    <div class="stop-body">
+      <p id="stop-lead">Tes réponses ne décrivent pas un problème de méthode. Elles décrivent un mécanisme qui s'est installé sur plusieurs plans à la fois : ce que tu manges, ce que tu en fais après, et surtout ce que tu te dis pendant. Les trois se tiennent, et c'est pour ça qu'aucun ne cède quand on s'attaque à lui tout seul.</p>
+      <p>C'est la raison pour laquelle je ne vais pas te donner trois chantiers à cocher. Pas parce qu'il n'y a rien à faire — il y a du travail, et il commence maintenant — mais parce que ce travail-là ne se fait pas en appliquant une consigne de plus. Tu en as probablement déjà appliqué beaucoup.</p>
+    </div>
+
+    <div class="res-block" style="margin-top:34px">
+      <div class="accent-line"></div>
+      <h2 style="margin-top:14px">Où ça se joue.</h2>
+      <p class="small" style="margin-top:10px">Six zones, calculées sur tes réponses. Une barre courte n'est pas une note : c'est un endroit qui demande du travail, et pas dans six mois.</p>
+      <div class="zones" id="stop-zones"></div>
+    </div>
+
+    <div class="res-block" style="margin-top:34px">
+      <div class="accent-line"></div>
+      <h2 style="margin-top:14px">Par où ça se reprend, chez toi.</h2>
+      <p class="small" style="margin-top:10px">Trois directions, dans l'ordre. Aucune ne se règle en une semaine, et aucune ne commence par ton assiette.</p>
+      <div id="stop-plan"></div>
+    </div>
+
+    <div class="res-block" style="margin-top:10px">
+      <div class="note-box">
+        <p>Ce qui remonte dans tes réponses est ancien et bien ancré. Ça ne veut pas dire que c'est figé — ça veut dire que le déverrouiller demande d'en parler avec quelqu'un, pas de serrer un cran de plus toute seule. C'est exactement le genre de situation où l'on tourne en rond pendant des années faute d'avoir posé les choses à voix haute une fois.</p>
+      </div>
+    </div>
+
+    <div class="cta-card" style="margin-top:34px">
+      <div class="accent-line"></div>
+      <span class="eyebrow">La suite</span>
+      <h2>Écris-moi, on regarde ton cas.</h2>
+      <p>Pas de formulaire, pas de discours commercial. Tu m'écris, je te réponds moi-même, et on voit ensemble par quel bout le prendre. Ça n'engage rien.</p>
+
+      <div class="wa-fields">
+        <label class="wa-label" for="stop-prenom">Ton prénom</label>
+        <input type="text" id="stop-prenom" autocomplete="given-name" placeholder="Élodie" maxlength="40">
+      </div>
+
+      <p class="wa-prev-label">Ce que tu vas m'envoyer</p>
+      <div class="wa-bubble" aria-live="polite"><span id="stop-preview"></span><span class="wa-caret" aria-hidden="true">|</span></div>
+      <p class="tiny wa-note">Tu pourras le compléter avant de l'envoyer.</p>
+
+      <a class="btn btn-primary btn-hero btn-block" id="stop-wa-btn" href="#" target="_blank" rel="noopener">Ouvrir WhatsApp</a>
+    </div>
+
+    <div class="res-block" style="margin-top:30px">
+      <p class="tiny">Ce test décrit un fonctionnement à partir de tes réponses. Il ne pose aucun diagnostic, ne remplace aucun avis, et ne dit rien de ce que tu vis au-delà de ce que tu as coché.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ÉCRAN RÉSULTAT ============ -->
+<section class="screen" id="results">
+  <div class="wrap">
+
+    <!-- 1. Profil -->
+    <div class="res-block reveal">
+      <div class="profile-card">
+        <img class="profile-logo" alt="RECODE Coaching" src="data:image/png;base64,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">
+        <div class="accent-line"></div>
+        <span class="eyebrow">Ton profil</span>
+        <h1 id="res-name"></h1>
+        <p class="tagline" id="res-tagline"></p>
+      </div>
+      <!-- 2. Rappel du cadeau -->
+      <p class="small reminder" id="gift-reminder">Je t'envoie La Grille 7 jours sur WhatsApp. C'est moi qui écris, à la main : ça peut prendre un peu de temps, mais ça arrive.</p>
+    </div>
+
+    <!-- 3. Donut -->
+    <div class="res-block reveal">
+      <div class="accent-line"></div>
+      <h2 style="margin-top:14px" id="donut-title">Ce qui tient, ce qui est sous tension.</h2>
+      <p class="small" style="margin-top:10px;margin-bottom:20px" id="donut-intro"></p>
+      <div class="donut-wrap">
+        <div class="donut">
+          <svg width="124" height="124" viewBox="0 0 124 124" aria-hidden="true">
+            <circle class="track" cx="62" cy="62" r="52"></circle>
+            <circle class="bar" id="donut-bar" cx="62" cy="62" r="52" stroke-dasharray="326.7" stroke-dashoffset="326.7"></circle>
+          </svg>
+          <div class="center"><b id="donut-pct">0 %</b><span id="donut-word">Stabilité</span></div>
+        </div>
+        <div class="donut-legend">
+          <div class="item">
+            <span class="sq on"></span>
+            <span class="txt"><b id="legend-on">0 %</b><span id="legend-on-txt"></span></span>
+          </div>
+          <div class="item">
+            <span class="sq off"></span>
+            <span class="txt"><b id="legend-off">0 %</b><span id="legend-off-txt"></span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Six zones -->
+    <div class="res-block reveal">
+      <div class="accent-line"></div>
+      <h2 style="margin-top:14px">Tes six zones.</h2>
+      <p class="small" style="margin-top:10px" id="zones-intro"></p>
+      <div class="zones" id="zones-host"></div>
+    </div>
+
+    <!-- Encarts -->
+    <div class="res-block reveal" id="alerts-block" style="display:none">
+      <div id="alerts-host"></div>
+    </div>
+
+    <!-- 5. La boucle -->
+    <div class="res-block reveal">
+      <div class="accent-line"></div>
+      <h2 style="margin-top:14px">La boucle.</h2>
+      <p class="small" style="margin-top:10px">Un cadre serré n'est pas un problème en soi : beaucoup de femmes en tiennent un sans que rien ne casse. Ce qui compte, c'est ce qu'il produit le jour où il rencontre un écart — et l'endroit où la boucle se referme.</p>
+      <div class="loop-wrap" id="loop-host"></div>
+      <div class="loop-caption">
+        <span class="eyebrow">Chez toi, elle se referme ici</span>
+        <p id="loop-text"></p>
+        <p id="loop-text2"></p>
+      </div>
+    </div>
+
+    <!-- 6. Déclencheurs -->
+    <div class="res-block reveal">
+      <div class="accent-line"></div>
+      <h2 style="margin-top:14px">Ce qu'il y a juste avant.</h2>
+      <p class="small" style="margin-top:10px">Tes déclencheurs, tels que tu les as cochés. Le corps et la tête ne se traitent pas dans le même ordre.</p>
+      <div class="trig-grid">
+        <div class="trig-col">
+          <span class="eyebrow">Côté corps</span>
+          <div id="trig-corps"></div>
+        </div>
+        <div class="trig-col">
+          <span class="eyebrow">Côté tête</span>
+          <div id="trig-tete"></div>
+        </div>
+      </div>
+      <div class="trig-read"><p id="trig-read"></p></div>
+    </div>
+
+    <!-- 7. Après l'écart — le levier -->
+    <div class="res-block reveal">
+      <div class="accent-line"></div>
+      <h2 style="margin-top:14px">Ce que tu fais après.</h2>
+      <p class="small" style="margin-top:10px">C'est le seul endroit de la boucle où tu décides encore. Et c'est celui que personne ne regarde.</p>
+      <div class="lever" id="lever-host"></div>
+      <div class="ed-block" style="margin-top:6px">
+        <span class="eyebrow">Pourquoi c'est le vrai levier</span>
+        <p id="lever-why"></p>
+      </div>
+    </div>
+
+    <!-- 8. Erreurs du profil -->
+    <div class="res-block reveal">
+      <div class="accent-line"></div>
+      <h2 style="margin-top:14px">Les erreurs de ton profil.</h2>
+      <p class="small" style="margin-top:10px">Celles qu'on fait sans le savoir, parce qu'elles ont l'air de bonnes décisions.</p>
+      <ul class="plist is-errors" id="res-erreurs"></ul>
+    </div>
+
+    <!-- 9. Trois chantiers -->
+    <div class="res-block reveal">
+      <div class="accent-line"></div>
+      <h2 style="margin-top:14px">Par où ça se reprend.</h2>
+      <p class="small" style="margin-top:10px">Trois chantiers, dans l'ordre où ils comptent pour ton profil.</p>
+      <div id="plan-host"></div>
+      <div class="wall" id="plan-wall"></div>
+    </div>
+
+    <!-- 10. WhatsApp -->
+    <div class="res-block reveal">
+      <div class="cta-card">
+        <div class="accent-line"></div>
+        <span class="eyebrow">Une question ?</span>
+        <h2>Si un point ne colle pas avec ce que tu vis, dis-le-moi.</h2>
+        <p>Tu as de quoi t'y mettre. Si en lisant ton profil une question précise s'est posée — sur ton cas, sur l'ordre des choses, sur quelque chose qui ne correspond pas — envoie-la-moi. Je réponds moi-même.</p>
+
+        <div class="wa-fields">
+          <label class="wa-label" for="wa-prenom">Ton prénom</label>
+          <input type="text" id="wa-prenom" autocomplete="given-name" placeholder="Élodie" maxlength="40">
+          <label class="wa-label" for="wa-insta">Ton compte Instagram</label>
+          <input type="text" id="wa-insta" autocomplete="off" placeholder="@toncompte" maxlength="60">
+        </div>
+
+        <p class="wa-prev-label">Ce que tu vas m'envoyer</p>
+        <div class="wa-bubble" aria-live="polite"><span id="wa-preview"></span><span class="wa-caret" aria-hidden="true">|</span></div>
+        <p class="tiny wa-note">Tu pourras le compléter avant de l'envoyer. Ton prénom et ton compte me servent juste à savoir à qui je réponds.</p>
+
+        <a class="btn btn-primary btn-hero btn-block" id="wa-btn" href="#" target="_blank" rel="noopener">Ouvrir WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="res-block">
+      <p class="tiny">Ce profil repose uniquement sur tes réponses. Il décrit un fonctionnement observé aujourd'hui : il ne pose aucun diagnostic et ne remplace aucun avis.</p>
+      <button class="btn btn-ghost" id="restart-btn" type="button" style="margin-top:14px">Refaire le test</button>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="tiny">RECODE Coaching — Kevin · <a href="https://instagram.com/indianaafit" target="_blank" rel="noopener">@indianaafit</a> · contact@coaching-indianaafit.fr</p>
+    <p class="tiny">Ce test décrit un fonctionnement alimentaire à partir de tes réponses. Il ne pose aucun diagnostic.</p>
+  </div>
+</footer>
+<script>
+"use strict";
+
+/* ============================================================
+   1. CONFIGURATION
+   ============================================================ */
+var WHATSAPP_NUMBER = "33677705047";
+var SHEETS_ENDPOINT = "https://script.google.com/macros/s/AKfycbwu-f6q0-juToA33HhWDoWikUFYP1EXB5U6l0_KWf7wzMxip-zWXkyFbaG8iIDEMQMf/exec";
+var QUIZ_SOURCE     = "quiz-alimentation";
+/* Le thème se règle en haut du fichier : var RECODE_THEME = "dark"; */
+
+/* ============================================================
+   2. LES SIX ZONES
+   Base 100, soustractif. Compression à 25 % au-delà de 80.
+   Borné 12–90.
+   La zone 1 est pénalisée aux deux extrêmes : un cadre qui enferme
+   et une absence totale de structure font tous les deux descendre
+   la barre, parce que dans les deux cas le cadre ne sert à rien.
+   ============================================================ */
+var ZONES = [
+  { id:"Z1", name:"Justesse du cadre",   note:"Des règles qui te servent — ni trop serrées, ni inexistantes." },
+  { id:"Z2", name:"Dette physiologique", note:"Niveau d'apport, délai entre les repas, faim non couverte." },
+  { id:"Z3", name:"Charge émotionnelle", note:"La nourriture utilisée pour réguler autre chose." },
+  { id:"Z4", name:"Réparation",          note:"Ce que tu fais dans les heures qui suivent un écart." },
+  { id:"Z5", name:"Représentations",     note:"Ce que tu crois de la nourriture, et d'où ça vient." },
+  { id:"Z6", name:"Environnement",       note:"Repas partagés, week-end, regard des autres." }
+];
+
+/* ============================================================
+   3. LES SIX PROFILS + L'ÉTAT DE SORTIE
+   loopNode : l'étape de la boucle mise en avant. Vide = ce profil
+   n'est pas dans la boucle, et le texte le dit.
+   ============================================================ */
+var PROFILS = {
+  R: {
+    name:"Cadre sous tension",
+    tagline:"Ton cadre ne casse pas par faiblesse. Il casse parce qu'il est trop serré.",
+    blind:"Après chaque écart, je resserre — et je prépare le suivant.",
+    loopNode:"TIGHTEN",
+    loop1:"Chez toi, la boucle se referme après l'écart. Tu reprends en plus strict que ce que tu tenais avant. Le cadre remonte d'un cran, la marge descend d'autant, et l'écart suivant devient plus probable qu'il ne l'était.",
+    loop2:"Ce n'est pas la discipline qui manque. C'est qu'elle sert à réparer au lieu de tenir. Un cadre qui ne supporte aucun écart n'est pas un cadre solide : c'est un cadre qui n'a pas encore été testé.",
+    leverWhy:"Tes règles, tu peux les défendre une par une. Ce que tu ne peux pas défendre, c'est ce qu'elles deviennent après un écart. C'est là que ton cadre change de nature : il arrête d'organiser tes repas et il se met à compenser. Tant que la réparation reste un resserrement, chaque écart te laisse avec moins de marge qu'avant.",
+    erreurs:[
+      "Lire l'écart comme la preuve que le cadre n'était pas assez strict, alors que c'est souvent l'inverse.",
+      "Ajouter une règle après chaque incident, jusqu'à ce que le cadre ne supporte plus une journée normale.",
+      "Juger la solidité d'un cadre sur les semaines où rien ne se passe."
+    ]
+  },
+  D: {
+    name:"Dette non reconnue",
+    tagline:"Ce que tu appelles un manque de volonté est souvent une faim en retard.",
+    blind:"Je lis un signal physiologique comme un défaut de caractère.",
+    loopNode:"DEBT",
+    loop1:"Chez toi, la boucle se referme très tôt : dès la dette. Tes apports et le délai entre tes repas créent un retard que ton corps finit par réclamer, et il le réclame au pire moment — quand tu es fatiguée, seule, ou en fin de journée.",
+    loop2:"Ce qui arrive ensuite n'est pas un choix. C'est un rattrapage. Tant que la dette est là, travailler sur ta volonté revient à discuter avec la mauvaise partie de toi.",
+    leverWhy:"Tu peux travailler sur ta tête autant que tu veux : si ton corps est en retard, il gagnera. Ce qui se passe après l'écart compte double chez toi, parce que la réparation classique — sauter le repas suivant, serrer le lendemain — ajoute de la dette à la dette. Tu répares avec ce qui a causé le problème.",
+    erreurs:[
+      "Chercher la cause dans l'émotionnel alors que le retard d'apport explique déjà le moment et l'intensité.",
+      "Compenser un écart en mangeant moins ensuite, ce qui prépare mécaniquement le suivant.",
+      "Prendre une faim permanente, ou une faim disparue, pour un trait de caractère."
+    ]
+  },
+  E: {
+    name:"Régulation par la nourriture",
+    tagline:"La nourriture ne règle pas le problème. Elle règle le moment.",
+    blind:"Je cherche la solution dans mon assiette alors que le levier est ailleurs.",
+    loopNode:"SLIP",
+    loop1:"Chez toi, la boucle ne démarre pas par la dette. Elle démarre par l'écart lui-même, déclenché par un état : tension, tristesse, colère, solitude, ennui, ou ce qui suit un passage devant le miroir.",
+    loop2:"La nourriture fait exactement ce qu'on lui demande : elle fait baisser l'intensité du moment. Ça marche, et c'est précisément pour ça que ça revient. Ce qui ne marche pas, c'est ce qui vient après — parce que le problème de départ, lui, est toujours là.",
+    leverWhy:"Chez toi, resserrer le cadre ne change rien : ce n'est pas le cadre qui a lâché, c'est un moment qui est arrivé sans autre issue. Ce que tu fais après décide si l'épisode reste un épisode ou devient la règle. Ajouter de la restriction en réponse à une charge émotionnelle, c'est empiler deux contraintes sur la même personne.",
+    erreurs:[
+      "Régler un problème d'état par un changement de règles alimentaires.",
+      "Attendre d'avoir « plus de volonté » pour des moments qui, eux, n'en demandent pas.",
+      "Retirer l'aliment concerné, ce qui déplace l'épisode sans le réduire."
+    ]
+  },
+  A: {
+    name:"Alternance tout ou rien",
+    tagline:"Le problème n'est ni ta semaine, ni ton week-end. C'est l'alternance.",
+    blind:"Je juge mes journées en réussite ou en échec, jamais en moyenne.",
+    loopNode:"GUILT",
+    loop1:"Chez toi, la boucle se referme au moment du jugement. Dès qu'une journée sort du cadre, elle bascule entièrement du côté raté — et une journée ratée n'a plus de raison de se rattraper en cours de route.",
+    loop2:"C'est ce basculement qui produit l'écart entre ta semaine et ton week-end, pas le week-end lui-même. Souvent, ce qui explose le samedi n'est rien d'autre que la frustration accumulée du lundi au vendredi. Ton corps, lui, ne compte pas en journées : il fait la moyenne sur la semaine.",
+    leverWhy:"Ton cadre de semaine n'est pas le problème, et ton week-end non plus pris isolément. Ce qui coûte, c'est la bascule entre les deux, et elle se décide dans les heures qui suivent le premier écart. Tant qu'une journée entière se perd sur un repas, la semaine se joue en deux blocs qui s'annulent.",
+    erreurs:[
+      "Durcir la semaine pour compenser le week-end, ce qui creuse l'écart au lieu de le réduire.",
+      "Abandonner une journée entière après un seul repas.",
+      "Évaluer une semaine sur ses deux pires repas plutôt que sur l'ensemble."
+    ]
+  },
+  V: {
+    name:"Contrôle qui coûte",
+    tagline:"Tu tiens. La question, c'est ce que ça te coûte.",
+    blind:"Je confonds maîtrise et charge mentale permanente.",
+    loopNode:"RULES",
+    loop1:"Chez toi, la boucle n'a pas encore fait son tour. Tu es à la première étape, et tu y restes : le cadre tient, les règles s'appliquent, rien ne casse. C'est ce qui rend ton profil difficile à repérer — pour les autres comme pour toi.",
+    loop2:"Ce qui se paie chez toi n'est pas visible dans l'assiette. C'est la place que ça prend : le temps passé à anticiper, l'arbitrage à chaque repas partagé, le calcul permanent en fond. Un cadre serré n'est pas un problème en soi — le tien tient. La seule question est ce qu'il occupe.",
+    leverWhy:"Tu n'as pas d'écart à réparer aujourd'hui, donc cette étape te paraît sans objet. C'est justement pour ça qu'il faut la regarder maintenant : ce que tu ferais après un écart est déjà décidé par la façon dont tu tiens ton cadre. Les profils qui basculent ne basculent pas parce qu'ils étaient faibles, mais parce que rien n'avait été prévu pour le jour où.",
+    erreurs:[
+      "Prendre l'absence d'écart pour la preuve que le fonctionnement est sain.",
+      "Considérer la charge mentale comme le prix normal du sérieux.",
+      "Éviter les situations qui mettraient le cadre à l'épreuve, et appeler ça de la rigueur."
+    ]
+  },
+  S: {
+    name:"Sans repères",
+    tagline:"Tu ne te sabotes pas. Personne ne te l'a jamais appris.",
+    blind:"Je cherche un problème de comportement là où il manque simplement des bases.",
+    loopNode:"",
+    loop1:"Cette boucle-là, tu n'es pas dedans. Tu ne restreins pas, tu ne compenses pas, tu ne t'en veux pas particulièrement. Ce qui manque chez toi est en amont : des repères. Tu manges selon ce qui se présente, avec des règles ramassées ici et là dont tu ne sais pas si elles te servent.",
+    loop2:"C'est la situation la plus fréquente, et la plus mal traitée — parce qu'on propose à ces femmes-là des méthodes conçues pour réparer un rapport abîmé, alors que le leur ne l'est pas. Il n'est pas construit, ce qui n'est pas du tout pareil, et se règle beaucoup plus vite.",
+    leverWhy:"Chez toi, ce qui se passe après un écart pèse peu : il n'y a pas de cadre à resserrer, donc pas de mécanisme qui s'emballe. Ce qui compte, c'est ce qui se passe avant — savoir ce que tu manges, quand, et pourquoi. Tant que ça n'existe pas, tu jugeras chaque méthode sur son effet à trois semaines, sans jamais savoir laquelle correspondait à ton cas.",
+    erreurs:[
+      "Appliquer une règle entendue quelque part sans jamais vérifier si elle change quelque chose pour toi.",
+      "Conclure qu'on manque de volonté alors qu'on manque d'informations.",
+      "Empiler des méthodes venues de plusieurs sources, qui se contredisent sans qu'on s'en aperçoive."
+    ]
+  },
+  NONE: {
+    name:"Rien à réparer ici",
+    tagline:"Ton rapport à l'alimentation n'est pas ce qui te bloque. Et c'est une information.",
+    blind:"Aucune de mes zones ne descend — et si je stagne, la cause est ailleurs.",
+    loopNode:"",
+    loop1:"Tes réponses ne dessinent pas de boucle. Ton cadre supporte les écarts, tes apports ne créent pas de retard, et ce que tu fais après un repas qui sort du cadre ne prépare pas le suivant.",
+    loop2:"C'est un résultat, pas un lot de consolation. Si tu stagnes malgré ça, le levier est ailleurs : programmation, récupération, terrain physiologique. Chercher du côté de l'alimentation te ferait perdre du temps — et, sur certains profils, ferait apparaître un problème qui n'existait pas.",
+    leverWhy:"Rien à reprendre ici aujourd'hui. Ce qui vaut pour toi, c'est de ne pas casser ce qui tient : la plupart des boucles commencent par une règle ajoutée pour bien faire, au moment d'un objectif un peu pressé.",
+    erreurs:[
+      "Ajouter des règles pour accélérer, au moment précis où l'objectif devient pressant.",
+      "Conclure que si ça ne bouge pas, c'est forcément l'alimentation.",
+      "Reprendre la méthode d'une autre femme dont le fonctionnement n'a rien à voir avec le tien."
+    ]
+  }
+};
+
+/* ============================================================
+   4. TROIS CHANTIERS PAR PROFIL
+   Jamais de dose, jamais de chiffre. Chaque chantier se termine
+   sur ce qui reste à trancher.
+   ============================================================ */
+var PLANS = {
+  R: { actions:[
+    ["Change ce que tu fais dans les deux heures qui suivent.",
+     "Pas le cadre : la suite. Reprendre au repas suivant comme si de rien n'était casse la boucle plus vite que tout le reste, parce que c'est le seul endroit où le mécanisme s'interrompt sans rien te demander de nouveau. Ce qui reste à trancher, c'est ce que « comme si de rien n'était » veut dire dans ton cas précis."],
+    ["Enlève des règles, ne les assouplis pas.",
+     "Une règle assouplie reste une règle : elle continue de produire de l'arbitrage à chaque repas. En retirer franchement une ou deux libère plus de place qu'en adoucir cinq. Reste à décider lesquelles : certaines organisent réellement tes journées, d'autres ne font que mesurer ta discipline, et elles ne se distinguent pas à l'énoncé."],
+    ["Teste ton cadre au lieu d'attendre qu'il soit testé.",
+     "Un cadre qui n'a jamais rencontré un repas imprévu n'a pas encore donné sa vraie mesure. Le confronter volontairement, dans une situation choisie, t'apprend plus que trois semaines parfaites. Ce qui reste à trancher, c'est dans quelle situation — parce que le but n'est pas de tenir, c'est de voir ce qui se passe après."]
+  ], wall:"Ces trois chantiers ne se prennent pas dans le désordre. Retirer des règles sans avoir changé ce qui suit un écart, c'est laisser la boucle tourner avec moins de marge. Et tester ton cadre avant d'avoir travaillé la suite revient à provoquer exactement ce que tu crains." },
+
+  D: { actions:[
+    ["Comble la dette avant de toucher à quoi que ce soit d'autre.",
+     "Tant que le retard est là, aucun travail sur le cadre ou sur les émotions ne tiendra : le corps reprendra la main à chaque fois. Ce qui reste à trancher, c'est par où on commence — la répartition sur la journée et le niveau d'apport ne se corrigent pas en même temps, et l'ordre change le confort des premières semaines."],
+    ["Arrête de réparer en retirant.",
+     "Sauter le repas suivant ou serrer le lendemain ajoute de la dette à une dette. C'est le geste qui transforme un épisode isolé en cycle. Le remplacer est moins une question de volonté que de décision prise à l'avance. Reste à décider ce qu'on met à la place, et ce n'est pas la même réponse selon le moment de la journée."],
+    ["Traite ta faim comme une donnée, pas comme une tentation.",
+     "Une faim qui arrive tôt, une faim permanente ou une faim qui a disparu disent chacune quelque chose de précis, et ce ne sont pas des défauts de caractère. Les observer sans les corriger, un temps, donne plus d'informations que de les faire taire. Ce qui reste à trancher, c'est ce qu'on en conclut."]
+  ], wall:"La dette passe devant, toujours. Travailler sur ta tête pendant que ton corps est en retard, c'est discuter avec la partie qui n'a pas la main. Et changer ta réparation sans combler la dette revient à retirer le rattrapage sans retirer ce qui le déclenche." },
+
+  E: { actions:[
+    ["Sépare le moment de l'assiette.",
+     "Ce qui se joue chez toi commence avant la première bouchée : un état, une charge, une fin de journée. Identifier le moment plutôt que l'aliment déplace le travail là où il est utile. Reste à trancher lesquels de tes moments reviennent et lesquels sont accidentels — on ne traite pas pareil un déclencheur quotidien et un qui arrive trois fois par an."],
+    ["Vérifie d'abord qu'il n'y a pas de dette derrière.",
+     "Une charge émotionnelle et un retard d'apport produisent exactement la même scène. Si les deux sont là, le corps passe devant : on comble d'abord, et une partie de ce qui ressemblait à de l'émotionnel disparaît. Ce qui reste à trancher, c'est ce qui subsiste une fois la dette comblée — et ça, ça ne se sait qu'après."],
+    ["Ajoute une issue, n'enlève pas l'aliment.",
+     "Retirer ce que tu manges dans ces moments ne retire pas le moment : il revient, avec autre chose. Ce qui réduit l'épisode, c'est qu'il existe une autre sortie disponible à cet instant. Laquelle dépend de ce que la nourriture fait pour toi — apaiser, occuper, ou couper — et ces trois-là n'appellent pas la même réponse."]
+  ], wall:"L'ordre compte : tant que la dette n'est pas écartée, tout ce que tu attribues à l'émotionnel reste une hypothèse. Et ajouter une issue sans avoir identifié le moment revient à préparer une réponse pour une question qui n'a pas été posée." },
+
+  A: { actions:[
+    ["Coupe la journée en repas, pas en verdict.",
+     "Un repas qui sort du cadre ne rend pas la journée perdue — c'est le jugement qui la perd. Reprendre au repas suivant, sans rien compenser, supprime l'essentiel de l'écart hebdomadaire sans rien changer à ta semaine. Ce qui reste à trancher, c'est ce que tu regardes à la place : sans repère de remplacement, le tout-ou-rien revient tout seul."],
+    ["Desserre la semaine avant de toucher au week-end.",
+     "L'écart entre les deux est proportionnel à la rigidité de la semaine : ce qui explose le samedi est souvent la frustration accumulée depuis le lundi. Desserrer un peu en semaine fait plus pour ton week-end que n'importe quelle règle appliquée le samedi. Reste à décider où desserrer — toutes tes règles de semaine ne pèsent pas pareil."],
+    ["Regarde la semaine, pas la journée.",
+     "Ton corps fait la moyenne. Toi, tu comptes en journées réussies et en journées ratées, et c'est ce décalage qui entretient l'alternance. Changer d'unité de mesure change la lecture de la moitié de tes semaines. Ce qui reste à trancher, c'est sur quoi tu fais cette moyenne : suivre des chiffres n'est pas une bonne idée pour tous les profils, et le tien demande d'y regarder à deux fois."]
+  ], wall:"Desserrer la semaine sans changer ta façon de juger un repas ne fait que déplacer la bascule. Et changer d'unité de mesure pendant que la semaine reste rigide te donnera une moyenne que tu jugeras, elle aussi, en tout ou rien." },
+
+  V: { actions:[
+    ["Mesure ce que ça occupe, pas ce que ça donne.",
+     "Ton cadre tient : ce n'est pas là qu'il faut regarder. Ce qui se compte chez toi, c'est le temps passé à anticiper, l'arbitrage à chaque repas partagé, ce à quoi tu penses en fond. Reste à trancher ce qu'on fait de ce constat — une charge mentale élevée n'impose pas de tout casser, mais elle change ce qu'on peut te demander en plus."],
+    ["Décide maintenant ce qui se passera après un écart.",
+     "C'est la seule chose qui distingue les cadres qui tiennent de ceux qui basculent, et elle se décide à froid — pas le jour où ça arrive. Ce qui reste à trancher, c'est le niveau de détail : trop vague et ça ne tient pas, trop précis et ça devient une règle de plus."],
+    ["Remets un aliment, ou une situation, dans le cadre.",
+     "Un cadre solide est un cadre qui absorbe. Réintroduire volontairement quelque chose que tu as écarté te dit ce que ton cadre vaut réellement. Reste à décider quoi, et dans quel contexte — certains retours coûtent peu et apprennent beaucoup, d'autres l'inverse."]
+  ], wall:"Ces chantiers n'ont d'intérêt que pris ensemble : mesurer la charge sans rien décider ne change rien, et réintroduire quelque chose sans avoir prévu la suite revient à tester ton cadre en espérant qu'il tienne." },
+
+  S: { actions:[
+    ["Commence par regarder, sans rien changer.",
+     "Tu ne peux pas corriger ce que tu n'as pas encore vu. Observer ce que tu manges réellement pendant quelques jours, sans rien modifier, donne plus d'informations que trois mois de méthode appliquée à l'aveugle. Ce qui reste à trancher, c'est quoi noter exactement : trop peu ne dit rien, trop devient une contrainte que tu abandonneras."],
+    ["Trie les règles que tu as ramassées.",
+     "Tu appliques des choses que tu n'as pas décidées — lues quelque part, entendues d'une copine, vues sur un compte. Certaines te vont, d'autres ne servent à rien chez toi, et rien ne les distingue tant qu'on ne les teste pas une par une. Reste à trancher par laquelle commencer : celle qui te coûte le plus n'est pas toujours celle qui te freine le plus."],
+    ["Construis un socle avant de chercher une méthode.",
+     "Une structure simple qui tient bat n'importe quel protocole que tu ne tiendras pas. Les repères d'abord, l'optimisation ensuite — jamais l'inverse, même si tout ce que tu lis fait le contraire. Ce qui reste à trancher, c'est le niveau de détail dont tu as besoin, et il dépend entièrement de ton objectif."]
+  ], wall:"Ces trois-là s'enchaînent : trier tes règles sans avoir regardé ce que tu manges, c'est trier à l'aveugle. Et chercher une méthode avant d'avoir un socle, c'est ce que tu as déjà fait — avec les résultats que tu connais." },
+
+  NONE: { actions:[
+    ["Ne resserre pas pour accélérer.",
+     "C'est l'erreur qui crée la boucle chez des femmes qui n'en avaient pas. Un objectif pressant, quelques règles ajoutées pour bien faire, et le mécanisme démarre. Ce qui reste à trancher, c'est comment on avance sans passer par là."],
+    ["Cherche ailleurs ce qui te bloque.",
+     "Si tu stagnes, tes réponses disent que ce n'est pas ici. Programmation, récupération, terrain physiologique : c'est de ce côté qu'il faut regarder. Reste à trancher par lequel commencer, et ça ne se devine pas depuis un test sur l'alimentation."],
+    ["Garde ce qui tient.",
+     "Ce que tu as aujourd'hui — un cadre qui absorbe les écarts, une réparation qui n'en rajoute pas — est ce que la plupart des femmes cherchent à reconstruire. La question n'est pas de l'améliorer, mais de ne pas le perdre au premier objectif un peu serré."]
+  ], wall:"Ces trois-là tiennent ensemble : chercher ailleurs pendant qu'on resserre ici revient à créer un second problème en cherchant le premier." }
+};
+
+/* Ordre de priorité en cas d'égalité — la dette passe devant, parce
+   qu'elle change la lecture de tout le reste. */
+var TIE_ORDER = ["D","R","E","A","S","V"];
+
+/* ============================================================
+   5. LA BOUCLE — cinq étapes, toujours le même sens.
+   ============================================================ */
+var LOOP_NODES = [
+  { id:"RULES",   l1:"Cadre",        l2:"serré" },
+  { id:"DEBT",    l1:"Dette",        l2:"" },
+  { id:"SLIP",    l1:"Écart",        l2:"" },
+  { id:"GUILT",   l1:"Culpabilité",  l2:"" },
+  { id:"TIGHTEN", l1:"On resserre",  l2:"" }
+];
+
+/* ============================================================
+   6. LES 14 QUESTIONS
+   prof  = points de profil (R D E A V S)
+   zones = effet sur les zones (négatif = pénalité)
+   dk    = « je ne sais pas » : aucun point de profil
+   disc  = réponse discriminante, comptée pour la lisibilité
+   Chaque libellé de ligne est une question, ponctuée comme telle.
+   ============================================================ */
+var QUESTIONS = [
+
+/* Q1 — Le cadre. Le nombre de règles ne dit rien seul : ce qui compte,
+   c'est de savoir si elles sont choisies ou subies. */
+{ id:"a1", type:"rows", eyebrow:"Le cadre", key:"cadre",
+  title:"Tes règles, et d'où elles viennent.",
+  hint:"Une règle, c'est tout ce que tu t'imposes : un horaire, une quantité, un aliment à éviter, un ordre.",
+  rows:[
+    { id:"regles", label:"Combien de règles tu appliques à ton alimentation ?", disc:true, options:[
+      { id:"none",  label:"Aucune, je mange comme ça vient", prof:{S:3,D:1}, zones:{Z1:-14} },
+      { id:"few",   label:"Deux ou trois, simples" },
+      { id:"five",  label:"Cinq ou six, et j'y tiens", prof:{R:2,V:2}, zones:{Z1:-12} },
+      { id:"many",  label:"Beaucoup, je ne saurais pas les compter", prof:{R:4,V:3}, zones:{Z1:-22} },
+      { id:"dk",    label:"Je ne sais pas ce qui compte comme une règle", prof:{S:3}, dk:true, neutral:true }
+    ]},
+    { id:"origine", label:"Ces règles, elles viennent d'où ?", disc:true, options:[
+      { id:"chosen",  label:"Je les ai choisies, testées, et elles me vont", zones:{Z1:16,Z5:8} },
+      { id:"heavy",   label:"Je les ai choisies, mais elles me pèsent", prof:{V:3}, zones:{Z1:-8} },
+      { id:"copied",  label:"Je les ai prises ailleurs sans vraiment décider", prof:{S:4}, zones:{Z1:-14,Z5:-12} },
+      { id:"duty",    label:"Je m'y tiens par obligation, pas par choix", prof:{V:4,R:2}, zones:{Z1:-16,Z5:-10} },
+      { id:"fear",    label:"Je m'y tiens par peur de ce qui arriverait sinon", prof:{R:4,V:2}, zones:{Z1:-22,Z5:-14} }
+    ]}
+  ]
+},
+
+/* Q2 — La représentation de l'alimentation.
+   Ce n'est pas la liste qui compte, c'est la raison derrière. */
+{ id:"a2", type:"groups", eyebrow:"Ce que tu écartes", key:"ecarte",
+  title:"Ce que tu ne te permets pas.",
+  groups:[
+    { id:"quoi", label:"Qu'est-ce que tu as mis de côté ?", mode:"multi", hint:"Plusieurs réponses possibles.", options:[
+      { id:"macro",  label:"Des familles entières — les glucides, les lipides", prof:{R:3,S:2}, zones:{Z2:-14,Z5:-12} },
+      { id:"sucre",  label:"Le sucre, les gâteaux, les desserts", prof:{R:2}, zones:{Z5:-10} },
+      { id:"transfo",label:"Tout ce qui est transformé ou industriel", prof:{R:2}, zones:{Z5:-8} },
+      { id:"hour",   label:"Manger en dehors des horaires que je me suis fixés", prof:{R:2}, zones:{Z1:-12} },
+      { id:"social", label:"Les restaurants, les repas chez les autres", prof:{R:3,V:2}, zones:{Z6:-18,Z1:-6} },
+      { id:"nothing",label:"Rien, je mange de tout", exclusive:true, neutral:true, zones:{Z5:10} }
+    ]},
+    { id:"pourquoi", label:"Et pourquoi, surtout ?", mode:"multi", hint:"Plusieurs réponses possibles.", options:[
+      { id:"tested",  label:"Je l'ai testé sur moi, ça ne me convient pas", zones:{Z5:12} },
+      { id:"read",    label:"J'ai lu ou entendu que c'était mauvais", prof:{S:4}, zones:{Z5:-16} },
+      { id:"nostop",  label:"Parce que si j'en mange, je ne m'arrête plus", prof:{E:4,R:2}, zones:{Z3:-18} },
+      { id:"guilt",   label:"Parce que je m'en voudrais après", prof:{R:3,E:2,A:2}, zones:{Z5:-20} },
+      { id:"weight",  label:"Parce que ça me ferait prendre du poids", prof:{R:3,S:2}, zones:{Z5:-14} },
+      { id:"na",      label:"Je n'écarte rien, la question ne se pose pas", exclusive:true, neutral:true },
+      { id:"dk",      label:"Je ne saurais pas dire", exclusive:true, prof:{S:2}, dk:true, neutral:true }
+    ]}
+  ]
+},
+
+/* Q3 — Les apports, et surtout la restriction telle qu'elle est vécue. */
+{ id:"a3", type:"rows", eyebrow:"Les apports", key:"apports",
+  title:"Ce que tu manges, et ce que ça te fait.",
+  rows:[
+    { id:"assez", label:"Est-ce que tu manges assez ?", disc:true, options:[
+      { id:"yes",   label:"Oui, et je le sais parce que je suis mes apports", zones:{Z2:10} },
+      { id:"proba", label:"Probablement, mais je n'ai pas de chiffres" },
+      { id:"under", label:"Sûrement pas assez, et je n'arrive pas à manger plus", prof:{D:5}, zones:{Z2:-28} },
+      { id:"much",  label:"Plutôt trop, je crois", prof:{E:2}, zones:{Z2:-6} },
+      { id:"dk",    label:"Aucune idée, je n'ai jamais regardé", prof:{S:4,D:2}, zones:{Z2:-18}, dk:true, neutral:true }
+    ]},
+    { id:"restriction", label:"Dans la journée, est-ce que tu te sens en restriction ?", disc:true, options:[
+      { id:"never",  label:"Non, jamais", zones:{Z2:8} },
+      { id:"some",   label:"Sur certaines journées seulement" },
+      { id:"hold",   label:"Souvent, et je tiens", prof:{R:4,V:2,A:2}, zones:{Z2:-16,Z1:-10} },
+      { id:"burst",  label:"Souvent, et ça finit par lâcher en fin de journée", prof:{R:4,D:4}, zones:{Z2:-24,Z4:-8} },
+      { id:"dk",     label:"Je ne sais pas trop ce que ça veut dire", prof:{S:2}, dk:true, neutral:true }
+    ]}
+  ]
+},
+
+/* Q4 — Le rythme. */
+{ id:"a4", type:"rows", eyebrow:"Le rythme", key:"rythme",
+  title:"Comment tes journées sont faites.",
+  rows:[
+    { id:"repas", label:"Combien de vrais repas par jour ?", disc:true, options:[
+      { id:"four_plus",  label:"Quatre ou plus, répartis sur la journée" },
+      { id:"three_plus", label:"Trois, plus une collation si besoin" },
+      { id:"three",      label:"Trois" },
+      { id:"two",        label:"Deux", prof:{D:3}, zones:{Z2:-14} },
+      { id:"one",        label:"Un seul vrai repas, le reste sur le pouce", prof:{D:5}, zones:{Z2:-26} },
+      { id:"graze",      label:"Pas vraiment de repas, je mange par petites touches", prof:{S:3,D:2}, zones:{Z2:-12,Z1:-14} }
+    ]},
+    { id:"jeune", label:"Le plus long moment sans rien manger, dans une journée normale ?", disc:true, options:[
+      { id:"lt5",  label:"Moins de 5 heures" },
+      { id:"h57",  label:"5 à 7 heures", prof:{D:1}, zones:{Z2:-6} },
+      { id:"h710", label:"7 à 10 heures", prof:{D:3}, zones:{Z2:-16} },
+      { id:"gt10", label:"Plus de 10 heures", prof:{D:5}, zones:{Z2:-24} }
+    ]}
+  ]
+},
+
+/* Q5 — La faim. « J'écoute mon corps » n'est pas toujours une bonne
+   nouvelle : encore faut-il savoir ce qu'on écoute. */
+{ id:"a5", type:"rows", eyebrow:"La faim", key:"faim",
+  title:"Ta faim, telle que tu la lis.",
+  rows:[
+    { id:"ressenti", label:"Est-ce que tu la ressens ?", disc:true, options:[
+      { id:"clear",   label:"Oui, clairement, et je mange" },
+      { id:"unsure",  label:"Je crois l'écouter, sans savoir de quelle faim il s'agit", prof:{S:4,E:2}, zones:{Z3:-12} },
+      { id:"wait",    label:"Oui, mais j'attends souvent avant de manger", prof:{D:3,R:2}, zones:{Z2:-14} },
+      { id:"gone",    label:"Je ne la sens presque plus", prof:{D:4}, zones:{Z2:-20} },
+      { id:"always",  label:"Je la sens tout le temps", prof:{D:4}, zones:{Z2:-18} }
+    ]},
+    { id:"distinction", label:"Tu fais la différence entre une vraie faim et une envie ?", disc:true, options:[
+      { id:"clear",   label:"Oui, sans y penser", zones:{Z3:12} },
+      { id:"after",   label:"Sur le moment non, après coup oui", prof:{E:2}, zones:{Z3:-8} },
+      { id:"same",    label:"Non, pour moi c'est la même chose", prof:{E:4,S:2}, zones:{Z3:-16,Z2:-6} },
+      { id:"suspect", label:"Je pars du principe que c'est une envie, jamais une vraie faim", prof:{R:4,D:3}, zones:{Z2:-14,Z5:-14} },
+      { id:"dk",      label:"Je ne me suis jamais posé la question", prof:{S:3}, dk:true, neutral:true }
+    ]}
+  ]
+},
+
+/* Q6 — Le cycle. La question porte sur la faim et les envies, jamais
+   sur le cycle en lui-même. Ce qui se mesure, c'est l'écart entre ce
+   que le corps demande et ce que le cadre autorise. */
+{ id:"a6", type:"rows", eyebrow:"Ton cycle", key:"cycle",
+  title:"Ta faim change-t-elle dans le mois ?",
+  rows:[
+    { id:"pattern", label:"Tu remarques des changements de faim ou d'envies selon ton cycle ?", disc:true, options:[
+      { id:"clear",  label:"Oui, nettement, et toujours aux mêmes moments" },
+      { id:"vague",  label:"Oui, mais je ne saurais pas dire quand", prof:{S:2} },
+      { id:"no",     label:"Non, rien de particulier", neutral:true },
+      { id:"nocycle",label:"Je n'ai pas de cycle naturel en ce moment", neutral:true },
+      { id:"dk",     label:"Je ne le suis pas, je ne saurais pas dire", prof:{S:3}, dk:true, neutral:true }
+    ]},
+    { id:"compte", label:"Et tu en tiens compte ?", disc:true, options:[
+      { id:"adjust", label:"Oui, j'adapte ce que je mange sur ces jours-là", zones:{Z2:10,Z5:8} },
+      { id:"same",   label:"Non, j'applique le même cadre toute l'année", prof:{R:3,S:2}, zones:{Z1:-12,Z2:-10} },
+      { id:"guilt",  label:"Je m'en veux de manger plus ces jours-là", prof:{R:4,E:2}, zones:{Z5:-18} },
+      { id:"unknown",label:"Je ne savais pas qu'on pouvait en tenir compte", prof:{S:4}, zones:{Z5:-12} },
+      { id:"na",     label:"La question ne se pose pas pour moi", neutral:true }
+    ]}
+  ]
+},
+
+/* Q7 — Le grignotage, et surtout ses raisons. */
+{ id:"a7", type:"groups", eyebrow:"Le grignotage", key:"grignotage",
+  title:"Entre les repas.",
+  groups:[
+    { id:"freq", label:"À quelle fréquence tu grignotes ?", mode:"single", disc:true, options:[
+      { id:"never",  label:"Jamais, ou presque", prof:{V:2} },
+      { id:"some",   label:"De temps en temps" },
+      { id:"daily",  label:"Presque tous les jours", prof:{E:2}, zones:{Z3:-8} },
+      { id:"cont",   label:"En continu, dès que c'est à portée", prof:{E:4}, zones:{Z3:-18,Z1:-8} }
+    ]},
+    { id:"pourquoi", label:"Et quand ça arrive, c'est plutôt pourquoi ?", mode:"multi", hint:"Plusieurs réponses possibles.", options:[
+      { id:"hungry", label:"J'ai faim, tout simplement", zones:{Z2:6} },
+      { id:"there",  label:"C'est là, je mange sans y penser", prof:{S:3,E:2}, zones:{Z3:-10} },
+      { id:"bored",  label:"Ça m'occupe quand je tourne en rond", prof:{E:4}, zones:{Z3:-16} },
+      { id:"calm",   label:"Ça me calme quand je suis tendue", prof:{E:5}, zones:{Z3:-20} },
+      { id:"under",  label:"Je n'ai pas assez mangé avant", prof:{D:4}, zones:{Z2:-16} },
+      { id:"na",     label:"Ça ne m'arrive pas", exclusive:true, neutral:true }
+    ]}
+  ]
+},
+
+/* Q8 — Les moments de bascule. Ils se cumulent. */
+{ id:"a8", type:"multi", eyebrow:"Les moments", key:"moments", disc:true,
+  title:"Quand est-ce que ça bascule ?",
+  hint:"Plusieurs réponses possibles.",
+  options:[
+    { id:"afternoon", label:"En fin d'après-midi", prof:{D:3}, zones:{Z2:-10} },
+    { id:"evening",   label:"Le soir, après le dîner", prof:{E:3,D:2}, zones:{Z3:-12} },
+    { id:"night",     label:"La nuit", prof:{E:3,D:2}, zones:{Z3:-14,Z2:-6} },
+    { id:"weekend",   label:"Le week-end, ou quand ma routine saute", prof:{A:5}, zones:{Z6:-16} },
+    { id:"alone",     label:"Quand je suis seule", prof:{E:4}, zones:{Z3:-14} },
+    { id:"social",    label:"Après un repas au restaurant ou chez des gens", prof:{A:3,R:2}, zones:{Z6:-12} },
+    { id:"cycle",     label:"À certains moments de mon cycle", prof:{D:3}, zones:{Z2:-8} },
+    { id:"random",    label:"À des moments que je ne saurais pas prévoir", prof:{E:3,S:2}, zones:{Z3:-12} },
+    { id:"never",     label:"Ça ne bascule pas", exclusive:true, prof:{V:2}, neutral:true }
+  ]
+},
+
+/* Q9 — Ce qui précède. Corps et tête séparés. */
+{ id:"a9", type:"groups", eyebrow:"Juste avant", key:"precede",
+  title:"Juste avant, il se passe quoi ?",
+  groups:[
+    { id:"corps", label:"Côté corps ?", mode:"multi", hint:"Plusieurs réponses possibles.", options:[
+      { id:"longgap", label:"Je n'avais rien mangé depuis longtemps", prof:{D:4}, zones:{Z2:-18} },
+      { id:"lowday",  label:"Je sortais d'une journée où j'avais peu mangé", prof:{D:4,R:2}, zones:{Z2:-20} },
+      { id:"sleep",   label:"J'avais mal dormi", prof:{D:2}, zones:{Z2:-8} },
+      { id:"session", label:"Je sortais d'une grosse séance", prof:{D:2}, zones:{Z2:-8} },
+      { id:"none",    label:"Rien de tout ça", exclusive:true, neutral:true }
+    ]},
+    { id:"tete", label:"Côté tête ?", mode:"multi", hint:"Plusieurs réponses possibles.", options:[
+      { id:"stress",  label:"J'étais stressée, ou sous pression", prof:{E:4}, zones:{Z3:-18} },
+      { id:"sad",     label:"J'avais le cafard, ou j'étais triste", prof:{E:4}, zones:{Z3:-18} },
+      { id:"angry",   label:"J'étais énervée, ou en colère", prof:{E:3}, zones:{Z3:-14} },
+      { id:"lonely",  label:"Je me sentais seule", prof:{E:4}, zones:{Z3:-16} },
+      { id:"tired",   label:"J'étais fatiguée, ou vidée", prof:{E:3}, zones:{Z3:-12} },
+      { id:"reward",  label:"J'avais envie de me récompenser", prof:{E:3,R:2}, zones:{Z3:-12,Z5:-8} },
+      { id:"mirror",  label:"Je venais de me peser, ou de me regarder", prof:{E:3,R:3}, zones:{Z3:-14,Z5:-12} },
+      { id:"none",    label:"Rien de tout ça", exclusive:true, neutral:true }
+    ]}
+  ]
+},
+
+/* Q10 — L'épisode. L'intensité est mesurée, jamais nommée. */
+{ id:"a10", type:"groups", eyebrow:"Pendant", key:"pendant",
+  title:"Quand ça arrive, ça ressemble à quoi ?",
+  groups:[
+    { id:"facon", label:"Comment tu manges à ce moment-là ?", mode:"multi", hint:"Plusieurs réponses possibles.", options:[
+      { id:"normal",   label:"Normalement, juste plus que prévu" },
+      { id:"fast",     label:"Vite, et plus que je ne voulais", prof:{R:2,E:2}, zones:{Z3:-10} },
+      { id:"unaware",  label:"Sans vraiment me rendre compte des quantités", prof:{E:4}, zones:{Z3:-16} },
+      { id:"cantstop", label:"Je ne m'arrête pas avant d'avoir fini ce qu'il y a", prof:{E:5,R:2}, zones:{Z3:-22} },
+      { id:"pain",     label:"Je mange jusqu'à être mal physiquement", prof:{E:5,R:2}, zones:{Z3:-28} },
+      { id:"hidden",   label:"Plutôt à l'abri du regard des autres", prof:{E:3,R:2}, zones:{Z3:-14,Z6:-10} },
+      { id:"na",       label:"Ça ne m'arrive pas", exclusive:true, prof:{V:1}, neutral:true }
+    ]},
+    { id:"frequence", label:"À quelle fréquence ?", mode:"single", disc:true, options:[
+      { id:"never",   label:"Jamais, ou presque", neutral:true },
+      { id:"monthly", label:"Une ou deux fois par mois" },
+      { id:"weekly",  label:"Une fois par semaine", prof:{E:2,R:2}, zones:{Z3:-8} },
+      { id:"often",   label:"Plusieurs fois par semaine", prof:{E:4,R:3}, zones:{Z3:-20} }
+    ]}
+  ]
+},
+
+/* Q11 — Après : ce que tu fais, ce que tu rattrapes, ce que ça laisse.
+   La compensation n'est pas limitée au lendemain et n'est pas unique :
+   elle se cumule, et elle se déroule sur les jours qui suivent. */
+{ id:"a11", type:"groups", eyebrow:"Après", key:"apres",
+  title:"Ce qui se passe ensuite.",
+  hint:"C'est le seul endroit où tu décides encore.",
+  groups:[
+    { id:"suivant", label:"Au repas suivant ?", mode:"single", disc:true, options:[
+      { id:"normal", label:"Je mange normalement", zones:{Z4:12} },
+      { id:"usual",  label:"Je reprends simplement mon cadre habituel", zones:{Z4:8} },
+      { id:"light",  label:"Je mange un peu plus léger" },
+      { id:"skip",   label:"Je le saute", prof:{R:4,A:2}, zones:{Z4:-24} },
+      { id:"reset",  label:"Je repars à zéro, plus strictement qu'avant", prof:{R:5,A:2}, zones:{Z4:-28,Z1:-12} }
+    ]},
+    { id:"rattrape", label:"Et dans les jours qui suivent, tu fais quelque chose pour rattraper ?", mode:"multi", hint:"Plusieurs réponses possibles.", options:[
+      { id:"nothing", label:"Non, rien de particulier", exclusive:true, zones:{Z4:12} },
+      { id:"tighten", label:"Je serre le cadre plus qu'avant", prof:{R:5,A:3}, zones:{Z4:-24,Z1:-14} },
+      { id:"skipmeals",label:"Je saute des repas", prof:{R:5,A:2}, zones:{Z4:-26,Z2:-12} },
+      { id:"fast",    label:"Je jeûne une journée entière", prof:{R:5}, zones:{Z4:-30,Z2:-18} },
+      { id:"sport",   label:"Je fais du sport en plus pour compenser", prof:{R:4,A:2}, zones:{Z4:-20} },
+      { id:"purge",   label:"J'utilise quelque chose pour éliminer ce que j'ai mangé", prof:{R:5}, zones:{Z4:-34,Z5:-12} }
+    ]},
+    { id:"ressenti", label:"Et juste après, tu te sens comment ?", mode:"multi", hint:"Plusieurs réponses possibles.", options:[
+      { id:"fine",   label:"Ça m'a fait du bien, et c'est tout", exclusive:true, zones:{Z5:14,Z3:8} },
+      { id:"gone",   label:"Je n'y repense pas vraiment", exclusive:true, zones:{Z5:8} },
+      { id:"then",   label:"Ça m'a fait du bien sur le moment, puis ça m'a pesé", prof:{E:3,A:2}, zones:{Z5:-12,Z3:-8} },
+      { id:"guilt",  label:"Coupable, comme si j'avais fait quelque chose de mal", prof:{R:3,E:2,A:2}, zones:{Z5:-22} },
+      { id:"self",   label:"Je m'en veux, je me trouve nulle", prof:{R:3,E:3}, zones:{Z5:-26} },
+      { id:"anxious",label:"Inquiète de ce que ça va faire sur mon corps", prof:{R:3,V:2}, zones:{Z5:-18} },
+      { id:"na",     label:"Ça ne m'arrive pas", exclusive:true, neutral:true }
+    ]}
+  ]
+},
+
+/* Q12 — Semaine et week-end. */
+{ id:"a12", type:"single", eyebrow:"Semaine et week-end", key:"weekend", disc:true,
+  title:"L'écart entre ta semaine et ton week-end ?",
+  options:[
+    { id:"none",   label:"Il n'y en a pas vraiment", prof:{V:2}, zones:{Z6:10} },
+    { id:"light",  label:"Léger, et ça me va" },
+    { id:"strong", label:"Ma semaine est très cadrée, mon week-end beaucoup moins", prof:{A:5}, zones:{Z6:-18,Z1:-8} },
+    { id:"cancel", label:"Ma semaine est parfaite et mon week-end annule tout", prof:{A:6,R:2}, zones:{Z6:-24,Z4:-10} },
+    { id:"dk",     label:"Je ne saurais pas dire", dk:true, neutral:true }
+  ]
+},
+
+/* Q13 — L'historique. Quand, et autour de quoi — pas plus loin. */
+{ id:"a13", type:"groups", eyebrow:"Depuis quand", key:"historique",
+  title:"Ce rapport à la nourriture, il date de quand ?",
+  groups:[
+    { id:"depuis", label:"Tu dirais qu'il s'est installé quand ?", mode:"single", disc:true, options:[
+      { id:"always", label:"Depuis toujours, je ne me souviens pas d'avant", prof:{E:2,R:2,V:2}, zones:{Z5:-10} },
+      { id:"teen",   label:"Quand j'étais plus jeune", prof:{E:2,R:2}, zones:{Z5:-8} },
+      { id:"years",  label:"Depuis quelques années", prof:{R:2} },
+      { id:"event",  label:"À partir d'un moment précis de ma vie", prof:{E:4}, zones:{Z3:-14} },
+      { id:"na",     label:"Ce n'est pas un sujet pour moi", neutral:true, zones:{Z5:10} }
+    ]},
+    { id:"autour", label:"Et à ce moment-là, il y avait quoi ?", mode:"multi", hint:"Plusieurs réponses possibles.", options:[
+      { id:"diet",    label:"Un régime, ou une perte de poids à faire", prof:{R:4,A:2}, zones:{Z5:-14} },
+      { id:"hard",    label:"Une période difficile à traverser", prof:{E:5}, zones:{Z3:-18} },
+      { id:"remarks", label:"Des remarques sur mon corps", prof:{R:3,E:3}, zones:{Z5:-16,Z6:-10} },
+      { id:"sport",   label:"Un sport où le poids comptait", prof:{R:4}, zones:{Z5:-12} },
+      { id:"alone",   label:"Beaucoup de temps seule", prof:{E:3}, zones:{Z3:-12} },
+      { id:"nothing", label:"Rien de particulier", exclusive:true, neutral:true }
+    ]}
+  ]
+},
+
+/* Q14 — Ce qu'elle sait, et la place que ça prend. */
+{ id:"a14", type:"rows", eyebrow:"Ce que tu sais", key:"reperes",
+  title:"Tes repères, et la place que ça occupe.",
+  rows:[
+    { id:"savoir", label:"Tu saurais dire ce que tu manges ?", disc:true, options:[
+      { id:"full",   label:"Oui, en quantités et en familles d'aliments", zones:{Z5:12} },
+      { id:"rough",  label:"À peu près, sans chiffres" },
+      { id:"feel",   label:"Pas vraiment, je fais au ressenti", prof:{S:3}, zones:{Z5:-10} },
+      { id:"never",  label:"Pas du tout — personne ne me l'a jamais appris", prof:{S:5}, zones:{Z5:-18,Z1:-14} }
+    ]},
+    { id:"place", label:"Combien de place ça prend dans ta tête ?", disc:true, options:[
+      { id:"low",   label:"Peu, j'y pense au moment des repas", zones:{Z5:10} },
+      { id:"some",  label:"Un peu, surtout quand j'ai un objectif", prof:{A:2} },
+      { id:"much",  label:"Beaucoup, j'y pense plusieurs fois par jour", prof:{V:4}, zones:{Z5:-18} },
+      { id:"all",   label:"En permanence, c'est un bruit de fond constant", prof:{V:5,R:2}, zones:{Z5:-26} }
+    ]}
+  ]
+}
+];
+
+/* ============================================================
+   7. ÉTAT ET CONSTANTES DE SCORING
+   ============================================================ */
+var state = { index:0, answers:{}, result:null };
+var RANK_WEIGHTS = [3, 1.3, 0.5];
+var ZONE_BASE    = 100;   // soustractif : une zone intacte reste en haut
+var ZONE_SOFT    = 80;    // au-delà, compression à 25 %
+var ZONE_MIN     = 12, ZONE_MAX = 90;
+var NONE_FLOOR   = 50;    // aucune zone sous ce seuil => rien à réparer ici
+var MIN_SCORE    = 5;     // en dessous, aucun profil ne tient sur assez de réponses
+var DISC_TOTAL   = 19;    // lignes marquées disc dans QUESTIONS
+
+function el(id){ return document.getElementById(id); }
+function clamp(v,a,b){ return Math.max(a, Math.min(b, v)); }
+function own(o,k){ return Object.prototype.hasOwnProperty.call(o,k); }
+
+function findQuestion(qid){
+  for(var i=0;i<QUESTIONS.length;i++){ if(QUESTIONS[i].id===qid) return QUESTIONS[i]; }
+  return null;
+}
+function findRow(q, rowId){
+  var list = q.rows || q.groups || [];
+  for(var r=0;r<list.length;r++){ if(list[r].id===rowId) return list[r]; }
+  return null;
+}
+function findOption(q, oid, rowId){
+  var list;
+  if(q.type==="rows" || q.type==="groups"){ var row = findRow(q,rowId); list = row ? row.options : null; }
+  else { list = q.options; if(q.bypass && q.bypass.id===oid) return q.bypass; }
+  if(!list) return null;
+  for(var i=0;i<list.length;i++){ if(list[i].id===oid) return list[i]; }
+  return null;
+}
+
+/* ============================================================
+   8. SCORING — recalculé intégralement à l'affichage,
+   jamais incrémenté au fil des réponses. Le bouton retour
+   ne peut donc pas produire de double comptage.
+   ============================================================ */
+function newScores(){
+  return { prof:{R:0,D:0,E:0,A:0,V:0,S:0}, zones:{Z1:0,Z2:0,Z3:0,Z4:0,Z5:0,Z6:0},
+           evidence:[], unknown:0, notes:{} };
+}
+
+/* Une question à cases à cocher peut voir cinq réponses s'additionner.
+   Sans plafond, elle pèserait à elle seule plus que six questions à
+   choix unique : cocher trois états n'est pas trois fois plus
+   informatif que d'en cocher un. Les zones ne sont pas plafonnées. */
+var PROF_CAP = 6;
+function mergeCapped(sc, sub, cap){
+  var k;
+  for(k in sub.prof){ if(own(sub.prof,k)) sc.prof[k] += Math.min(sub.prof[k], cap); }
+  for(k in sub.zones){ if(own(sub.zones,k)) sc.zones[k] += sub.zones[k]; }
+  for(var i=0;i<sub.evidence.length;i++) sc.evidence.push(sub.evidence[i]);
+  sc.unknown += sub.unknown;
+}
+
+function applyOption(opt, sc, mult, disc, evLabel){
+  if(!opt) return;
+  var m = (typeof mult==="number") ? mult : 1, k;
+  if(opt.prof){ for(k in opt.prof){ if(own(opt.prof,k)){
+    sc.prof[k] += opt.prof[k]*m;
+    if(opt.prof[k] > 0) sc.evidence.push({ k:k, pts:opt.prof[k]*m, label:evLabel || ("Tu as répondu « " + opt.label + " ».") });
+  }}}
+  if(opt.zones){ for(k in opt.zones){ if(own(opt.zones,k)) sc.zones[k] += opt.zones[k]*m; } }
+  if(disc && opt.dk) sc.unknown += 1;
+}
+
+function computeScores(){
+  var sc = newScores(), i, j, q, a, row;
+  for(i=0;i<QUESTIONS.length;i++){
+    q = QUESTIONS[i]; a = state.answers[q.id];
+    if(a===undefined || a===null) continue;
+    if(q.type==="single"){
+      applyOption(findOption(q,a), sc, 1, q.disc);
+    } else if(q.type==="rows"){
+      for(j=0;j<q.rows.length;j++){
+        row = q.rows[j];
+        if(a[row.id]) applyOption(findOption(q,a[row.id],row.id), sc, 1, row.disc);
+      }
+    } else if(q.type==="groups"){
+      for(j=0;j<q.groups.length;j++){
+        row = q.groups[j];
+        var ga = a[row.id];
+        if(!ga) continue;
+        if(row.mode==="multi"){
+          var subg = newScores();
+          for(var g=0;g<ga.length;g++) applyOption(findOption(q,ga[g],row.id), subg, 1, row.disc);
+          mergeCapped(sc, subg, PROF_CAP);
+        }
+        else applyOption(findOption(q,ga,row.id), sc, 1, row.disc);
+      }
+    } else if(q.type==="multi"){
+      var subm = newScores();
+      for(j=0;j<a.length;j++) applyOption(findOption(q,a[j]), subm, 1, q.disc);
+      mergeCapped(sc, subm, PROF_CAP);
+    } else if(q.type==="rank"){
+      if(a.bypass){ applyOption(q.bypass, sc, 1, q.disc); }
+      else {
+        for(j=0;j<a.ranked.length;j++){
+          var ro = findOption(q, a.ranked[j]);
+          var lbl = ro ? (j===0 ? "Tu as classé en premier « " + ro.label + " »."
+                                : "Tu as cité « " + ro.label + " ».") : "";
+          applyOption(ro, sc, RANK_WEIGHTS[j] || 0.25, false, lbl);
+        }
+      }
+    }
+  }
+  applyCrossRules(sc);
+
+  var fz = {};
+  for(i=0;i<ZONES.length;i++){
+    var raw = ZONE_BASE + sc.zones[ZONES[i].id];
+    var v = raw > ZONE_SOFT ? ZONE_SOFT + (raw-ZONE_SOFT)*0.25 : raw;
+    fz[ZONES[i].id] = Math.round(clamp(v, ZONE_MIN, ZONE_MAX));
+  }
+  sc.finalZones = fz;
+  sc.intensite = episodeIntensity();
+  return sc;
+}
+
+/* ---------- Lecteurs de réponses ---------- */
+function has(qid, oid){
+  var a = state.answers[qid];
+  if(a===undefined || a===null) return false;
+  if(typeof a==="string") return a===oid;
+  if(Array.isArray(a)) return a.indexOf(oid)!==-1;
+  if(a.ranked) return a.ranked.indexOf(oid)!==-1;
+  for(var k in a){ if(own(a,k)){
+    if(a[k]===oid) return true;
+    if(Array.isArray(a[k]) && a[k].indexOf(oid)!==-1) return true;
+  }}
+  return false;
+}
+function rowIs(qid,rowId,oid){
+  var a = state.answers[qid];
+  return !!(a && typeof a==="object" && !Array.isArray(a) && a[rowId]===oid);
+}
+function rowIn(qid,rowId,list){
+  for(var i=0;i<list.length;i++){ if(rowIs(qid,rowId,list[i])) return true; }
+  return false;
+}
+function groupHas(qid, groupId, oid){
+  var a = state.answers[qid];
+  if(!a || typeof a!=="object") return false;
+  var g = a[groupId];
+  return Array.isArray(g) ? g.indexOf(oid)!==-1 : g===oid;
+}
+function groupHasAny(qid, groupId, list){
+  for(var i=0;i<list.length;i++){ if(groupHas(qid, groupId, list[i])) return true; }
+  return false;
+}
+function groupPicked(qid, groupId){
+  /* au moins une option non neutre cochée dans ce groupe */
+  var a = state.answers[qid];
+  if(!a || typeof a!=="object") return false;
+  var g = a[groupId], q = findQuestion(qid), i, o;
+  if(!Array.isArray(g)) return false;
+  for(i=0;i<g.length;i++){ o = findOption(q, g[i], groupId); if(o && !o.neutral) return true; }
+  return false;
+}
+function multiHas(qid, oid){
+  var a = state.answers[qid];
+  return Array.isArray(a) && a.indexOf(oid)!==-1;
+}
+function multiHasAny(qid, list){
+  for(var i=0;i<list.length;i++){ if(multiHas(qid, list[i])) return true; }
+  return false;
+}
+
+/* Y a-t-il une dette lisible du côté des apports et du rythme ? */
+function hasDebt(){
+  return rowIn("a3","assez",["under","dk"]) || rowIs("a3","restriction","burst")
+      || rowIn("a4","repas",["two","one","graze"])
+      || rowIn("a4","jeune",["h710","gt10"])
+      || rowIn("a5","ressenti",["gone","always","wait"])
+      || rowIs("a5","distinction","suspect")
+      || groupHas("a7","pourquoi","under");
+}
+
+/* Le cadre est-il choisi et confortable ? C'est ce qui décide si un
+   nombre élevé de règles est une tension ou une organisation. */
+function frameEasy(){ return rowIs("a1","origine","chosen"); }
+function rareSlips(){ return rowIn("a10","frequence",["never","monthly"]); }
+
+/* Intensité de l'épisode — mesurée pour la fiche coach, jamais affichée
+   à la personne et jamais nommée. Elle sert à lire le Sheet, pas à
+   poser une étiquette sur un écran. */
+function episodeIntensity(){
+  var n = 0;
+  if(groupHas("a10","facon","pain")) n += 3;
+  else if(groupHas("a10","facon","cantstop")) n += 2;
+  else if(groupHas("a10","facon","unaware")) n += 1;
+  if(groupHas("a10","facon","hidden")) n += 1;
+  if(rowIs("a10","frequence","often")) n += 2;
+  else if(rowIs("a10","frequence","weekly")) n += 1;
+  if(groupHas("a11","rattrape","purge")) n += 4;
+  if(groupHas("a11","rattrape","fast")) n += 3;
+  if(groupHas("a11","rattrape","skipmeals")) n += 2;
+  if(groupHasAny("a11","rattrape",["tighten","sport"])) n += 1;
+  if(rowIs("a11","suivant","skip")) n += 1;
+  if(groupHas("a11","ressenti","self")) n += 2;
+  else if(groupHas("a11","ressenti","guilt")) n += 1;
+  if(multiHas("a8","alone")) n += 1;
+  if(rowIs("a14","place","all")) n += 1;
+  return Math.min(10, n);
+}
+
+/* ============================================================
+   9. RÈGLES CROISÉES
+   Elles évitent de pénaliser une réponse isolée qui, seule,
+   ne veut rien dire.
+   ============================================================ */
+function applyCrossRules(sc){
+  var P = sc.prof, Z = sc.zones;
+
+  /* R1 — La dette explique l'écart. */
+  if(groupHasAny("a9","corps",["longgap","lowday"])
+     && multiHasAny("a8",["afternoon","evening","night"])){
+    P.D += 4; Z.Z2 -= 8; sc.notes.debtExplains = true;
+  }
+
+  /* R2 — Le cadre serré ne coûte que s'il casse. */
+  var manyRules = rowIn("a1","regles",["five","many"]);
+  var weeklyPlus = rowIn("a10","frequence",["weekly","often"]);
+  if(manyRules && weeklyPlus){ P.R += 4; Z.Z1 -= 8; sc.notes.frameBreaks = true; }
+  if(manyRules && rowIs("a10","frequence","never")){
+    P.V += 4; Z.Z1 += 8; P.R = P.R * 0.5; sc.notes.frameHolds = true;
+  }
+
+  /* R3 — L'émotionnel ne compte que sans dette. */
+  if(groupPicked("a9","tete") && !hasDebt()){ P.E += 4; Z.Z3 -= 8; sc.notes.emoClean = true; }
+  else if(groupPicked("a9","tete") && hasDebt()){ sc.notes.emoMasked = true; }
+
+  /* R4 — La réparation est le vrai levier. Revenir à son cadre habituel
+     n'est pas un resserrement : seule l'escalade compte comme telle. */
+  var repairBad = rowIn("a11","suivant",["skip","reset"])
+               || groupHasAny("a11","rattrape",["tighten","skipmeals","fast","sport","purge"]);
+  if(repairBad){ P.R += 3; Z.Z4 -= 10; }
+  if(rowIn("a11","suivant",["normal","usual"]) && groupHas("a11","rattrape","nothing")){
+    Z.Z4 += 10; P.R -= 3; sc.notes.repairOk = true;
+  }
+
+  /* R5 — L'alternance se lit sur deux questions. */
+  if(has("a12","cancel") && multiHas("a8","weekend")){ P.A += 3; Z.Z6 -= 10; sc.notes.altConfirmed = true; }
+
+  /* R6 — Un cadre choisi et confortable n'est pas une tension — mais
+     seulement si les écarts sont effectivement rares. */
+  if(frameEasy() && rareSlips()){ P.R = P.R * 0.6; sc.notes.frameComfort = true; }
+  else if(frameEasy() && !rareSlips()){ sc.notes.frameBlind = true; }
+
+  /* R7 — Resserrer n'est pas toujours la boucle. */
+  var escalate = rowIs("a11","suivant","reset") || groupHasAny("a11","rattrape",["tighten","fast","purge"]);
+  if(escalate && rareSlips() && !hasDebt() && frameEasy()){
+    Z.Z4 += 14; P.R -= 3; sc.notes.repairContext = true;
+  }
+
+  /* R8 — La faim délégitimée : se dire que ce n'est jamais une vraie
+     faim, et tenir quand même. C'est le cadre qui écrase le signal. */
+  if(rowIs("a5","distinction","suspect") && rowIn("a3","restriction",["hold","burst"])){
+    P.R += 3; Z.Z5 -= 8; sc.notes.hungerDenied = true;
+  }
+
+  /* R9 — L'interdit tenu par la culpabilité, dans un cadre subi. */
+  if(groupHas("a2","pourquoi","guilt") && rowIn("a1","origine",["duty","fear"])){
+    P.R += 3; Z.Z5 -= 8; sc.notes.guiltDriven = true;
+  }
+
+  /* R10 — Rien n'est construit. Trois signes d'absence de repères qui
+     se confirment l'un l'autre : ce n'est plus un trou, c'est le sujet. */
+  var noRules = rowIn("a1","regles",["none","dk"]) || rowIs("a1","origine","copied");
+  var noIdea  = rowIn("a14","savoir",["feel","never"]);
+  var noData  = rowIs("a3","assez","dk") || rowIs("a5","distinction","dk")
+             || groupHas("a2","pourquoi","read") || rowIs("a6","compte","unknown");
+  if(noRules && noIdea && noData){ P.S += 5; Z.Z1 -= 16; Z.Z5 -= 8; sc.notes.noBaseline = true; }
+
+  /* R11 — La restriction de journée explique l'explosion du soir. */
+  if(rowIs("a3","restriction","burst") && multiHasAny("a8",["evening","night"])){
+    P.D += 3; P.R += 2; Z.Z2 -= 8; sc.notes.restrictionBursts = true;
+  }
+
+  /* R12 — L'alimentation réconfort n'est pas un problème en soi.
+     Ce qui compte, c'est ce qu'il en reste juste après. */
+  var comfort = groupHasAny("a7","pourquoi",["calm","bored"]);
+  if(comfort && groupHas("a11","ressenti","fine")){ Z.Z3 += 12; P.E -= 2; sc.notes.comfortOk = true; }
+  else if(comfort && groupHasAny("a11","ressenti",["guilt","self"])){
+    P.E += 3; Z.Z5 -= 8; sc.notes.comfortGuilt = true;
+  }
+
+  /* R13 — L'historique éclaire le présent, il ne le remplace pas. */
+  if(groupHas("a13","autour","hard") && groupPicked("a9","tete")){ P.E += 3; Z.Z3 -= 6; sc.notes.historyEmo = true; }
+  if(groupHasAny("a13","autour",["diet","sport"]) && manyRules){ P.R += 3; Z.Z5 -= 6; sc.notes.historyDiet = true; }
+
+  /* R14 — Le cycle observé mais pas pris en compte.
+     Elle voit un besoin changer, et son cadre ne change pas. */
+  var cyclePattern = rowIn("a6","pattern",["clear","vague"]);
+  if(cyclePattern && rowIs("a6","compte","same")){
+    P.R += 3; Z.Z1 -= 8; sc.notes.cycleIgnored = true;
+  }
+  if(rowIs("a6","pattern","clear") && rowIs("a6","compte","guilt")){
+    P.R += 3; Z.Z5 -= 8; sc.notes.cycleGuilt = true;
+  }
+  /* Une faim cyclique cochée dans les moments de bascule, sans aucun
+     ajustement : le besoin est réel, la réponse ne l'est pas. */
+  if(multiHas("a8","cycle") && rowIn("a6","compte",["same","guilt","unknown"])){
+    P.D += 3; Z.Z2 -= 8; sc.notes.cycleUnmet = true;
+  }
+
+  for(var k in P){ if(own(P,k) && P[k] < 0) P[k] = 0; }
+}
+
+/* ============================================================
+   10. SORTIE DURE
+   Trois grappes. Deux suffisent.
+   La grappe 2 ne retient que l'annulation : sauter un repas et
+   resserrer le cadre restent comptés dans le profil R, où ils
+   décrivent la cible de ce test, pas une situation à écarter.
+   CETTE RÈGLE EST UN GARDE-FOU ÉDITORIAL, PAS UN DÉPISTAGE.
+   ============================================================ */
+function hardStopClusters(){
+  var c = [];
+  /* Grappe 1 — perte de contrôle installée dans le temps */
+  if(groupHasAny("a10","facon",["unaware","cantstop","pain"])
+     && rowIn("a10","frequence",["weekly","often"])) c.push("controle");
+  /* Grappe 2 — compensation active.
+     Ne retient que les deux formes qui vont au-delà d'un simple
+     resserrement : éliminer, ou supprimer une journée entière. */
+  if(groupHasAny("a11","rattrape",["purge","fast"])) c.push("compensation");
+  /* Grappe 3 — emprise mentale */
+  if(rowIs("a14","place","all")
+     || (groupHas("a11","ressenti","self") && rowIn("a10","frequence",["weekly","often"]))) c.push("emprise");
+  return c;
+}
+function isHardStop(){ return hardStopClusters().length >= 2; }
+
+/* ============================================================
+   11. ATTRIBUTION DU PROFIL
+   ============================================================ */
+function lowestZone(sc){
+  var lo = 999, id = null;
+  for(var i=0;i<ZONES.length;i++){
+    var v = sc.finalZones[ZONES[i].id];
+    if(v < lo){ lo = v; id = ZONES[i].id; }
+  }
+  return { id:id, value:lo };
+}
+function pickProfil(sc){
+  var lo = lowestZone(sc);
+  if(lo.value >= NONE_FLOOR) return { key:"NONE", reason:"clean" };
+  var P = sc.prof, best = null, bestVal = -1;
+  for(var i=0;i<TIE_ORDER.length;i++){
+    var k = TIE_ORDER[i];
+    if(P[k] > bestVal){ bestVal = P[k]; best = k; }
+  }
+  if(bestVal < MIN_SCORE) return { key:"NONE", reason:"flat" };
+  return { key:best, reason:"" };
+}
+
+/* Donut — part de ton fonctionnement qui tient aujourd'hui.
+   Moyenne des six zones, recentrée sur les deux plus basses :
+   une moyenne brute lisserait précisément ce qu'on cherche à voir. */
+function computeDonut(sc){
+  var vals = [], i;
+  for(i=0;i<ZONES.length;i++) vals.push(sc.finalZones[ZONES[i].id]);
+  var sum = 0; for(i=0;i<vals.length;i++) sum += vals[i];
+  var mean = sum / vals.length;
+  var sorted = vals.slice().sort(function(a,b){ return a-b; });
+  var lowMean = (sorted[0] + sorted[1]) / 2;
+  return { mode:"stabilite", value: Math.round(clamp((mean + lowMean)/2, 10, 92)) };
+}
+
+/* Les réponses qui ont le plus pesé — ancrage déclaratif. */
+function topEvidence(sc, key, n){
+  var list = [], seen = {};
+  for(var i=0;i<sc.evidence.length;i++){
+    var e = sc.evidence[i];
+    if(e.k===key && !seen[e.label]){ list.push(e); seen[e.label] = true; }
+  }
+  list.sort(function(a,b){ return b.pts - a.pts; });
+  return list.slice(0, n);
+}
+
+/* ============================================================
+   12. ENCARTS — nomment un signal, jamais une étiquette.
+   ============================================================ */
+var ALERTS = [
+  { id:"cycle",
+    test:function(sc){ return !!(sc.notes.cycleIgnored || sc.notes.cycleUnmet); },
+    title:"Ta faim change dans le mois. Ton cadre, lui, ne change pas.",
+    body:"Tu l'as observé toi-même. Appliquer les mêmes règles à des jours où le besoin n'est pas le même, c'est créer un écart là où il n'y en avait pas besoin — puis le lire comme un manque de discipline.",
+    legal:"" },
+  { id:"cycleGuilt",
+    test:function(sc){ return !!sc.notes.cycleGuilt; },
+    title:"Tu t'en veux pour une faim que tu as toi-même vue revenir.",
+    body:"Ce que tu observes chaque mois au même moment n'est pas un relâchement. Se le reprocher ajoute une charge à un besoin — et c'est cette charge, pas la faim, qui produit la suite.",
+    legal:"" },
+  { id:"contradiction",
+    test:function(sc){ return !!sc.notes.frameBlind; },
+    title:"Tu dis avoir choisi tes règles et qu'elles te vont. Tes écarts disent autre chose.",
+    body:"Les deux ne peuvent pas être vraies en même temps : un cadre qui te va ne produit pas un écart par semaine. Ce n'est pas une contradiction de ta part — c'est que le coût ne se ressent pas au moment où il se paie.",
+    legal:"" },
+  { id:"faim",
+    test:function(sc){ return !!sc.notes.hungerDenied; },
+    title:"Tu pars du principe que ce n'est jamais une vraie faim.",
+    body:"À partir de là, plus aucun signal ne peut te servir : s'ils sont tous suspects, il n'y a plus rien à lire. C'est ce qui rend la suite imprévisible — pour toi comme pour n'importe qui regarderait ton cas.",
+    legal:"" },
+  { id:"restriction",
+    test:function(sc){ return !!sc.notes.restrictionBursts; },
+    title:"Ta journée n'est pas le problème. Ce que tu ressens pendant, si.",
+    body:"Manger peu en journée n'a rien d'anormal en soi. Ce qui l'est, c'est de le vivre en privation jusqu'à ce que ça lâche le soir. Le soir n'est pas un moment de faiblesse : c'est l'endroit où la journée se rembourse.",
+    legal:"" },
+  { id:"reconfort",
+    test:function(sc){ return !!sc.notes.comfortOk; },
+    title:"Manger pour te réconforter ne te pose aucun problème. Note-le.",
+    body:"Tu le fais, et ça ne laisse rien derrière. Ce n'est pas la même chose qu'un épisode qui se paie ensuite — et ça n'a pas à être corrigé. La plupart des méthodes te demanderaient pourtant de l'arrêter.",
+    legal:"" },
+  { id:"baseline",
+    test:function(sc){ return !!sc.notes.noBaseline; },
+    title:"Il ne te manque pas de la volonté. Il te manque des repères.",
+    body:"Tes réponses décrivent des règles ramassées ailleurs, appliquées sans avoir été vérifiées sur toi. Ce n'est pas un rapport abîmé à réparer : c'est un rapport qui n'a jamais été construit, et ça ne se traite pas du tout pareil.",
+    legal:"" },
+  { id:"compensation",
+    test:function(sc){ return groupHasAny("a11","rattrape",["purge","fast","skipmeals"]); },
+    title:"Ce que tu fais pour rattraper coûte plus cher que ce que tu rattrapes.",
+    body:"Retirer après avoir mangé — une journée, des repas, ou autrement — ne remet rien à zéro. Ça ajoute un manque à un moment où il y en avait déjà un, et c'est ce manque qui prépare la fois suivante.",
+    legal:"" },
+  { id:"dette",
+    test:function(sc){ return sc.finalZones.Z2 < 40; },
+    title:"Ton niveau d'apport pèse sur tout le reste.",
+    body:"Tant qu'il est à ce niveau, une partie de ce que tu observes ne vient ni de ton cadre ni de ta tête. Aucun travail sur les règles ne tient pendant qu'un retard se creuse à côté.",
+    legal:"" },
+  { id:"reparation",
+    test:function(sc){ return sc.finalZones.Z4 < 40; },
+    title:"Ce que tu fais après un écart pèse plus que l'écart lui-même.",
+    body:"C'est le seul endroit de la boucle où le mécanisme peut s'interrompre. Tant que la réponse est de retirer, l'épisode suivant est déjà en préparation.",
+    legal:"" },
+  { id:"environnement",
+    test:function(sc){ return sc.finalZones.Z6 < 40 && has("a2","social"); },
+    title:"Ce que ça te coûte dépasse l'assiette.",
+    body:"Écarter des situations pour protéger un cadre, c'est le cadre qui décide de ton agenda. La question n'est plus ce que tu manges, mais ce que tu as arrêté de faire.",
+    legal:"Un signal à prendre en compte, jamais une conclusion." }
+];
+
+/* ============================================================
+   13. RENDU DES QUESTIONS
+   Aucune donnée n'est injectée dans un onclick : chaque bouton
+   porte data-qid / data-oid / data-row, et l'écouteur retrouve
+   l'option dans QUESTIONS.
+   ============================================================ */
+function makeOptionButton(q, opt, rowId, shape){
+  var b = document.createElement("button");
+  b.type = "button";
+  b.className = "opt" + (opt.neutral || opt.dk ? " is-neutral" : "");
+  b.setAttribute("data-qid", q.id);
+  b.setAttribute("data-oid", opt.id);
+  if(rowId) b.setAttribute("data-row", rowId);
+  b.setAttribute("data-shape", shape || "round");
+  b.setAttribute("aria-pressed", "false");
+  var mark = document.createElement("span"); mark.className = "mark"; mark.appendChild(document.createElement("span"));
+  var badge = document.createElement("span"); badge.className = "rank-badge";
+  var txt = document.createElement("span"); txt.className = "opt-label"; txt.textContent = opt.label;
+  b.appendChild(mark); b.appendChild(badge); b.appendChild(txt);
+  b.addEventListener("click", onOptionClick);
+  return b;
+}
+
+function renderBlock(host, q, row, shape){
+  var lab = document.createElement("p"); lab.className = "row-label"; lab.textContent = row.label;
+  host.appendChild(lab);
+  if(row.hint){ var h = document.createElement("p"); h.className = "group-hint"; h.textContent = row.hint; host.appendChild(h); }
+  var wrap = document.createElement("div"); wrap.className = "options";
+  for(var i=0;i<row.options.length;i++) wrap.appendChild(makeOptionButton(q, row.options[i], row.id, shape));
+  host.appendChild(wrap);
+}
+
+function renderQuestion(){
+  var q = QUESTIONS[state.index], host = el("question-host"), i, wrap;
+  host.innerHTML = "";
+  var head = document.createElement("div"); head.className = "q-head";
+  var line = document.createElement("div"); line.className = "accent-line"; head.appendChild(line);
+  var eb = document.createElement("p"); eb.className = "eyebrow"; eb.style.marginTop = "13px"; eb.textContent = q.eyebrow; head.appendChild(eb);
+  var h2 = document.createElement("h2"); h2.textContent = q.title; h2.setAttribute("tabindex","-1"); h2.id = "q-title"; head.appendChild(h2);
+  if(q.hint){ var hint = document.createElement("p"); hint.className = "q-hint"; hint.textContent = q.hint; head.appendChild(hint); }
+  host.appendChild(head);
+
+  if(q.type==="rows"){
+    for(i=0;i<q.rows.length;i++) renderBlock(host, q, q.rows[i], "round");
+  } else if(q.type==="groups"){
+    for(i=0;i<q.groups.length;i++) renderBlock(host, q, q.groups[i], q.groups[i].mode==="multi" ? "square" : "round");
+  } else {
+    wrap = document.createElement("div"); wrap.className = "options";
+    var shape = q.type==="multi" ? "square" : "round";
+    for(i=0;i<q.options.length;i++) wrap.appendChild(makeOptionButton(q, q.options[i], null, shape));
+    if(q.bypass){
+      var sep = document.createElement("div"); sep.className = "opt-sep"; wrap.appendChild(sep);
+      var bb = makeOptionButton(q, { id:q.bypass.id, label:q.bypass.label, neutral:true }, null, "round");
+      bb.setAttribute("data-bypass","1");
+      wrap.appendChild(bb);
+    }
+    host.appendChild(wrap);
+  }
+  paintSelection(); updateNav(); updateProgress();
+}
+
+function toggleMulti(list, q, oid, rowId){
+  var cur = Array.isArray(list) ? list.slice() : [];
+  var opt = findOption(q, oid, rowId), pos = cur.indexOf(oid);
+  if(pos!==-1){ cur.splice(pos,1); return cur; }
+  if(opt && opt.exclusive) return [oid];
+  cur = cur.filter(function(id){ var o = findOption(q,id,rowId); return !(o && o.exclusive); });
+  cur.push(oid);
+  return cur;
+}
+
+function onOptionClick(ev){
+  var b = ev.currentTarget;
+  var qid = b.getAttribute("data-qid"), oid = b.getAttribute("data-oid"), rowId = b.getAttribute("data-row");
+  var q = findQuestion(qid); if(!q) return;
+  var k;
+
+  if(q.type==="single"){
+    state.answers[qid] = oid;
+  } else if(q.type==="rows"){
+    var cur0 = state.answers[qid], next0 = {};
+    if(cur0 && typeof cur0==="object"){ for(k in cur0){ if(own(cur0,k)) next0[k] = cur0[k]; } }
+    next0[rowId] = oid;
+    state.answers[qid] = next0;
+  } else if(q.type==="groups"){
+    var cg = state.answers[qid], ng = {};
+    if(cg && typeof cg==="object"){ for(k in cg){ if(own(cg,k)) ng[k] = cg[k]; } }
+    var grp = findRow(q, rowId);
+    if(grp && grp.mode==="multi") ng[rowId] = toggleMulti(ng[rowId], q, oid, rowId);
+    else ng[rowId] = oid;
+    state.answers[qid] = ng;
+  } else if(q.type==="multi"){
+    state.answers[qid] = toggleMulti(state.answers[qid], q, oid, null);
+  } else if(q.type==="rank"){
+    var a = state.answers[qid];
+    a = a ? { ranked:a.ranked.slice(), bypass:!!a.bypass } : { ranked:[], bypass:false };
+    if(b.getAttribute("data-bypass")==="1"){
+      a = a.bypass ? { ranked:[], bypass:false } : { ranked:[], bypass:true };
+    } else {
+      a.bypass = false;
+      var rp = a.ranked.indexOf(oid);
+      if(rp!==-1) a.ranked.splice(rp,1);
+      else if(a.ranked.length < q.maxRank) a.ranked.push(oid);
+    }
+    state.answers[qid] = a;
+  }
+  paintSelection(); updateNav();
+}
+
+function paintSelection(){
+  var q = QUESTIONS[state.index], ans = state.answers[q.id];
+  var nodes = el("question-host").querySelectorAll(".opt");
+  for(var i=0;i<nodes.length;i++){
+    var n = nodes[i], oid = n.getAttribute("data-oid"), rowId = n.getAttribute("data-row");
+    var badge = n.querySelector(".rank-badge"), on = false;
+    n.classList.remove("is-selected","is-ranked");
+    if(badge) badge.textContent = "";
+    if(ans!==undefined && ans!==null){
+      if(q.type==="single") on = ans===oid;
+      else if(q.type==="rows") on = ans[rowId]===oid;
+      else if(q.type==="groups"){
+        var g = ans[rowId];
+        on = Array.isArray(g) ? g.indexOf(oid)!==-1 : g===oid;
+      }
+      else if(q.type==="multi") on = ans.indexOf(oid)!==-1;
+      else if(q.type==="rank"){
+        if(n.getAttribute("data-bypass")==="1") on = !!ans.bypass;
+        else {
+          var p = ans.ranked.indexOf(oid);
+          if(p!==-1){ n.classList.add("is-ranked"); badge.textContent = String(p+1); n.setAttribute("aria-pressed","true"); continue; }
+        }
+      }
+    }
+    if(on) n.classList.add("is-selected");
+    n.setAttribute("aria-pressed", on ? "true" : "false");
+  }
+}
+
+function isAnswered(){
+  var q = QUESTIONS[state.index], a = state.answers[q.id], r;
+  if(a===undefined || a===null) return false;
+  if(q.type==="single") return typeof a==="string";
+  if(q.type==="rows"){ for(r=0;r<q.rows.length;r++){ if(!a[q.rows[r].id]) return false; } return true; }
+  if(q.type==="groups"){
+    for(r=0;r<q.groups.length;r++){
+      var g = a[q.groups[r].id];
+      if(q.groups[r].mode==="multi"){ if(!Array.isArray(g) || !g.length) return false; }
+      else if(!g) return false;
+    }
+    return true;
+  }
+  if(q.type==="multi") return a.length > 0;
+  if(q.type==="rank") return !!(a.bypass || a.ranked.length);
+  return false;
+}
+
+function updateNav(){
+  var next = el("next-btn");
+  next.disabled = !isAnswered();
+  next.textContent = state.index===QUESTIONS.length-1 ? "Voir mon résultat" : "Continuer";
+  el("back-btn").style.visibility = state.index===0 ? "hidden" : "visible";
+}
+
+function updateProgress(){
+  var n = state.index + 1;
+  if(n > progress.maxQuestion) progress.maxQuestion = n;
+  var pct = Math.round(n / QUESTIONS.length * 100);
+  el("progress-label").textContent = "Question " + n + " / " + QUESTIONS.length;
+  el("progress-pct").textContent = pct + " %";
+  el("progress-fill").style.width = pct + "%";
+}
+
+function reducedMotion(){
+  return !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+}
+function scrollTop(){ window.scrollTo({ top:0, behavior: reducedMotion() ? "auto" : "smooth" }); }
+function focusTitle(){ var t = el("q-title"); if(t && t.focus) t.focus({ preventScroll:true }); }
+
+function goNext(){
+  if(!isAnswered()) return;
+  if(state.index < QUESTIONS.length-1){ state.index++; renderQuestion(); scrollTop(); focusTitle(); }
+  else runAnalysis();
+}
+function goBack(){
+  clearAnalysis();
+  if(state.index===0) return;
+  state.index--; renderQuestion(); scrollTop(); focusTitle();
+}
+function showScreen(id){
+  var s = document.querySelectorAll(".screen");
+  for(var i=0;i<s.length;i++) s[i].classList.remove("is-active");
+  el(id).classList.add("is-active");
+}
+
+/* ============================================================
+   14. ANALYSE
+   ============================================================ */
+var ANALYSIS_STEPS = [
+  "Lecture de ton cadre",
+  "Croisement des apports et du rythme",
+  "Recoupement de tes déclencheurs",
+  "Analyse de ce qui suit un écart",
+  "Vérification de la cohérence de tes réponses",
+  "Identification de ton profil"
+];
+var STEP_DELAY = 400, analysisTimers = [];
+function clearAnalysis(){ for(var i=0;i<analysisTimers.length;i++) clearTimeout(analysisTimers[i]); analysisTimers = []; }
+
+function runAnalysis(){
+  clearAnalysis();
+  var host = el("an-steps"); host.innerHTML = "";
+  for(var i=0;i<ANALYSIS_STEPS.length;i++){
+    var li = document.createElement("li");
+    var t = document.createElement("span"); t.className = "tick";
+    var x = document.createElement("span"); x.textContent = ANALYSIS_STEPS[i];
+    li.appendChild(t); li.appendChild(x); host.appendChild(li);
+  }
+  showScreen("analysis"); window.scrollTo({ top:0, behavior:"auto" });
+  var delay = reducedMotion() ? 60 : STEP_DELAY;
+  var nodes = host.querySelectorAll("li");
+  for(var j=0;j<nodes.length;j++){
+    (function(n, idx){ analysisTimers.push(setTimeout(function(){ n.classList.add("is-on"); }, 220 + idx*delay)); })(nodes[j], j);
+  }
+  analysisTimers.push(setTimeout(finish, 260 + ANALYSIS_STEPS.length*delay));
+}
+
+function finish(){
+  if(isHardStop()) showHardStop();
+  else showResults();
+}
+
+/* ============================================================
+   15. ÉCRAN DE SORTIE
+   Elle a répondu à quatorze questions : elle repart avec une lecture
+   et des directions, pas avec un refus. Rien n'est nommé, rien n'est
+   diagnostiqué — on décrit un mécanisme et on dit par où ça se reprend.
+   ============================================================ */
+var STOP_PLAN = [
+  ["Commence par ce que tu te dis, pas par ce que tu manges.",
+   "Chez toi, la phrase qui suit l'épisode pèse plus lourd que l'épisode. Tant qu'elle ne bouge pas, changer l'assiette ne change rien : le mécanisme redémarre au repas suivant, avec un cran de plus. C'est le premier chantier, et c'est celui qui débloque les autres. Ce qui reste à trancher, c'est par quelle phrase commencer — il y en a toujours une qui tient toutes les autres."],
+  ["Arrête de rattraper.",
+   "Tout ce que tu fais pour réparer après coup entretient très exactement ce que tu voudrais faire cesser. C'est contre-intuitif, et c'est pour ça que personne ne le lâche seul : ne rien faire après un écart demande plus de cran que de compenser. Ce qui reste à trancher, c'est ce qu'on met à la place — parce que « rien » n'est pas une réponse tenable au début."],
+  ["Sors du face-à-face avec toi-même.",
+   "Ce que tu décris tourne depuis un moment, et tu l'as regardé seule tout du long. Les lectures qu'on se fait de soi finissent toujours par se confirmer elles-mêmes — c'est leur défaut principal. Ce qui reste à trancher, c'est avec qui tu en parles. Que ce soit avec quelqu'un, en revanche, n'est pas une option chez toi : c'est la condition pour que le reste bouge."]
+];
+
+function showHardStop(){
+  var sc = computeScores();
+  var clusters = hardStopClusters();
+  state.result = { key:"STOP", reason:clusters.join("+"), prof:null, scores:sc, donut:null };
+
+  /* Ancrage : on nomme ce qui ressort de SES réponses, sans étiquette. */
+  var bits = [];
+  if(clusters.indexOf("controle") !== -1) bits.push("des épisodes qui reviennent et que tu n'arrives pas à arrêter en cours de route");
+  if(clusters.indexOf("compensation") !== -1) bits.push("ce que tu fais ensuite pour rattraper");
+  if(clusters.indexOf("emprise") !== -1) bits.push("la place que tout ça occupe dans ta tête");
+  var lead = "Tes réponses ne décrivent pas un problème de méthode. Ce qui en ressort : ";
+  if(bits.length === 1) lead += bits[0] + ".";
+  else if(bits.length === 2) lead += bits[0] + ", et " + bits[1] + ".";
+  else lead += bits.slice(0,-1).join(", ") + ", et " + bits[bits.length-1] + ".";
+  lead += " Ces éléments se tiennent entre eux, et c'est pour ça qu'aucun ne cède quand on s'attaque à lui tout seul.";
+  el("stop-lead").textContent = lead;
+
+  var host = el("stop-plan"); host.innerHTML = "";
+  for(var c=0;c<STOP_PLAN.length;c++){
+    var row = document.createElement("div"); row.className = "chantier";
+    var num = document.createElement("span"); num.className = "num"; num.textContent = String(c+1);
+    var body = document.createElement("div");
+    var h3 = document.createElement("h3"); h3.textContent = STOP_PLAN[c][0];
+    var pa = document.createElement("p"); pa.textContent = STOP_PLAN[c][1];
+    body.appendChild(h3); body.appendChild(pa);
+    row.appendChild(num); row.appendChild(body); host.appendChild(row);
+  }
+
+  /* Les six barres : elles localisent le travail, elles ne notent pas.
+     Pas de donut ici — un score global ressemblerait à une gravité. */
+  renderZones("stop-zones", sc, "STOP");
+
+  refreshStopWhatsApp();
+  progress.result = true;
+  pushToSheet({ evenement:"ecran_sortie" });
+  showScreen("stop");
+  window.scrollTo({ top:0, behavior:"auto" });
+  setTimeout(function(){
+    var host = el("stop-zones");
+    var bars = host.querySelectorAll(".zone-bar"), b;
+    for(b=0;b<bars.length;b++) bars[b].style.width = bars[b].getAttribute("data-target") + "%";
+    var nums = host.querySelectorAll(".zone-val");
+    for(b=0;b<nums.length;b++) countUp(nums[b], 1150);
+  }, 260);
+}
+
+/* ============================================================
+   16. LA BOUCLE — schéma SVG
+   ============================================================ */
+var SVG_NS = "http://www.w3.org/2000/svg";
+function svgEl(tag, attrs){
+  var n = document.createElementNS(SVG_NS, tag);
+  for(var k in attrs){ if(own(attrs,k)) n.setAttribute(k, String(attrs[k])); }
+  return n;
+}
+function renderLoop(activeId){
+  var host = el("loop-host"); host.innerHTML = "";
+  var cx = 210, cy = 158, r = 92;
+  var svg = svgEl("svg", { viewBox:"0 0 420 296", class:"loop-svg", role:"img",
+    "aria-label":"Schéma de la boucle : cadre serré, dette, écart, culpabilité, resserrement." });
+
+  svg.appendChild(svgEl("circle", { class:"ring", cx:cx, cy:cy, r:r }));
+
+  var i, ang, x, y;
+  /* flèches au milieu de chaque arc, orientées dans le sens de rotation */
+  for(i=0;i<5;i++){
+    ang = -90 + 36 + 72*i;
+    x = cx + r*Math.cos(ang*Math.PI/180);
+    y = cy + r*Math.sin(ang*Math.PI/180);
+    var tri = svgEl("path", { class:"arrow", d:"M -5 -4 L 5 0 L -5 4 Z",
+      transform:"translate(" + x.toFixed(1) + "," + y.toFixed(1) + ") rotate(" + (ang+90).toFixed(1) + ")" });
+    svg.appendChild(tri);
+  }
+
+  var anchors = ["middle","start","start","end","end"];
+  var sign = [0, 1, 1, -1, -1];
+  var dy = [-28, 5, 5, 5, 5];
+  for(i=0;i<LOOP_NODES.length;i++){
+    var node = LOOP_NODES[i];
+    ang = -90 + 72*i;
+    x = cx + r*Math.cos(ang*Math.PI/180);
+    y = cy + r*Math.sin(ang*Math.PI/180);
+    var g = svgEl("g", { class:"node" + (node.id===activeId ? " is-here" : "") });
+    if(node.id===activeId) g.appendChild(svgEl("circle", { class:"halo", cx:x, cy:y, r:16 }));
+    g.appendChild(svgEl("circle", { cx:x, cy:y, r: node.id===activeId ? 12 : 8 }));
+    var off = sign[i] * (node.id===activeId ? 40 : 30);
+    var t = svgEl("text", { x:x + off, y:y + dy[i], "text-anchor":anchors[i] });
+    t.textContent = node.l1 + (node.l2 ? " " + node.l2 : "");
+    g.appendChild(t);
+    svg.appendChild(g);
+  }
+  host.appendChild(svg);
+}
+
+/* ============================================================
+   17. DÉCLENCHEURS ET LEVIER
+   ============================================================ */
+function pickedLabels(qid, groupId){
+  var a = state.answers[qid], q = findQuestion(qid), out = [];
+  if(!a || typeof a!=="object") return out;
+  var g = a[groupId];
+  if(!Array.isArray(g)) return out;
+  for(var i=0;i<g.length;i++){
+    var o = findOption(q, g[i], groupId);
+    if(o && !o.neutral) out.push(o.label);
+  }
+  return out;
+}
+function fillTrigger(hostId, labels, emptyText){
+  var host = el(hostId); host.innerHTML = "";
+  if(!labels.length){
+    var p = document.createElement("p"); p.className = "none"; p.textContent = emptyText;
+    host.appendChild(p); return;
+  }
+  var ul = document.createElement("ul");
+  for(var i=0;i<labels.length;i++){ var li = document.createElement("li"); li.textContent = labels[i]; ul.appendChild(li); }
+  host.appendChild(ul);
+}
+
+var LEVER_READ = {
+  suivant:{
+    normal:"C'est la réponse qui interrompt la boucle. Rien à reprendre ici.",
+    usual:"Revenir à ce que tu tenais avant n'est pas un resserrement. C'est la sortie propre.",
+    light:"Neutre. Ça n'aggrave rien, et ça ne répare rien non plus.",
+    skip:"C'est là qu'elle se referme : tu ajoutes un retard au moment précis où il y en avait déjà un.",
+    reset:"Le cadre remonte d'un cran, la marge descend d'autant. L'écart suivant part de plus haut."
+  },
+  rattrape:{
+    nothing:"C'est la réponse qui interrompt la boucle. Rien à reprendre ici.",
+    tighten:"C'est le geste qui prépare le suivant — et c'est presque toujours celui qu'on défend le mieux.",
+    skipmeals:"Retirer des repas pour compenser, c'est rembourser une dette avec une autre dette.",
+    fast:"Une journée entière retirée ne remet rien à zéro : elle installe le manque qui produira la fois suivante.",
+    sport:"La séance n'est plus un entraînement, c'est un paiement. Ce qui se paie finit par revenir.",
+    purge:"C'est le point le plus coûteux de la boucle, et celui dont on parle le moins."
+  }
+};
+
+function renderLever(){
+  var host = el("lever-host"); host.innerHTML = "";
+  var q = findQuestion("a11"), a = state.answers.a11 || {};
+
+  function step(tagText, saidText, readText){
+    var s = document.createElement("div"); s.className = "step";
+    var tag = document.createElement("span"); tag.className = "tag"; tag.textContent = tagText;
+    var body = document.createElement("div"), p = document.createElement("p");
+    var said = document.createElement("span"); said.className = "said"; said.textContent = saidText;
+    p.appendChild(said); p.appendChild(document.createTextNode(readText || ""));
+    body.appendChild(p); s.appendChild(tag); s.appendChild(body); host.appendChild(s);
+  }
+
+  if(a.suivant){
+    var o = findOption(q, a.suivant, "suivant");
+    step("Au repas suivant", "Tu as répondu : « " + (o ? o.label : "") + " ». ", LEVER_READ.suivant[a.suivant]);
+  }
+
+  var comp = pickedLabels("a11","rattrape");
+  if(Array.isArray(a.rattrape) && a.rattrape.length){
+    /* la lecture porte sur la compensation la plus coûteuse cochée */
+    var order = ["purge","fast","skipmeals","tighten","sport","nothing"], read = "", i;
+    for(i=0;i<order.length;i++){ if(a.rattrape.indexOf(order[i])!==-1){ read = LEVER_READ.rattrape[order[i]]; break; } }
+    var said = comp.length ? "Tu as coché : " + comp.join(" ; ") + ". "
+                           : "Tu as répondu que tu ne rattrapes rien de particulier. ";
+    step("Pour rattraper", said, read);
+  }
+
+  var felt = pickedLabels("a11","ressenti");
+  if(felt.length){
+    step("Ce que ça laisse", "Tu as coché : " + felt.join(" ; ") + ". ",
+      groupHas("a11","ressenti","fine")
+        ? "C'est la réponse qui referme l'épisode sans rien laisser derrière."
+        : "C'est ce qui décide si l'épisode reste un épisode, ou s'il devient le point de départ du suivant.");
+  }
+}
+
+/* ============================================================
+   18. RÉSULTAT
+   ============================================================ */
+/* Les six barres. Partagées par l'écran de résultat et l'écran de sortie :
+   dans les deux cas elles localisent, elles ne notent pas. */
+function renderZones(hostId, sc, key){
+  var zHost = el(hostId); zHost.innerHTML = "";
+  var hiId = null, hiVal = -1, loId = null, loVal = 999, z, val;
+  for(z=0; z<ZONES.length; z++){
+    val = sc.finalZones[ZONES[z].id];
+    if(val > hiVal){ hiVal = val; hiId = ZONES[z].id; }
+    if(val < loVal){ loVal = val; loId = ZONES[z].id; }
+  }
+  var spread = hiVal - loVal >= 8;
+  for(z=0; z<ZONES.length; z++){
+    var zone = ZONES[z]; val = sc.finalZones[zone.id];
+    var block = document.createElement("div"); block.className = "zone";
+    var flag = null;
+    if(spread && zone.id===hiId && key!=="STOP") flag = "Ton point d'appui";
+    if(spread && zone.id===loId && key!=="NONE") flag = "Ta limite actuelle";
+    if(flag){
+      block.className += " is-flagged";
+      var f = document.createElement("span"); f.className = "zone-flag"; f.textContent = flag; block.appendChild(f);
+    }
+    var zh = document.createElement("div"); zh.className = "zone-head";
+    var zn = document.createElement("span"); zn.className = "zone-name"; zn.textContent = zone.name;
+    var zv = document.createElement("span"); zv.className = "zone-val"; zv.setAttribute("data-target", String(val)); zv.textContent = "0 %";
+    zh.appendChild(zn); zh.appendChild(zv);
+    var tr = document.createElement("div"); tr.className = "zone-track";
+    tr.setAttribute("role","img"); tr.setAttribute("aria-label", zone.name + " : " + val + " %");
+    var bar = document.createElement("div"); bar.className = "zone-bar"; bar.setAttribute("data-target", String(val));
+    tr.appendChild(bar);
+    var note = document.createElement("p"); note.className = "zone-note"; note.textContent = zone.note;
+    block.appendChild(zh); block.appendChild(tr); block.appendChild(note);
+    zHost.appendChild(block);
+  }
+}
+
+function fillList(id, items){
+  var host = el(id); host.innerHTML = "";
+  for(var i=0;i<items.length;i++){ var li = document.createElement("li"); li.textContent = items[i]; host.appendChild(li); }
+}
+function setTarget(id, v){ var n = el(id); n.setAttribute("data-target", String(v)); n.textContent = "0 %"; }
+
+function showResults(){
+  var sc = computeScores();
+  var pick = pickProfil(sc);
+  var key = pick.key, prof = PROFILS[key];
+  var donut = computeDonut(sc);
+  state.result = { key:key, reason:pick.reason, prof:prof, scores:sc, donut:donut };
+
+  el("res-name").textContent = prof.name;
+  el("res-tagline").textContent = prof.tagline;
+
+  /* Donut */
+  el("donut-intro").textContent = key==="NONE"
+    ? "La part de ton fonctionnement qui tient aujourd'hui, calculée sur tes six zones. Rien ici n'est une note."
+    : "La part de ton fonctionnement qui tient aujourd'hui. Ce n'est pas une note : c'est la place qu'il te reste avant que le cadre décide à ta place.";
+  el("legend-on-txt").textContent = "tient aujourd'hui";
+  el("legend-off-txt").textContent = "est sous tension";
+  setTarget("donut-pct", donut.value);
+  setTarget("legend-on", donut.value);
+  setTarget("legend-off", 100 - donut.value);
+
+  /* Zones */
+  renderZones("zones-host", sc, key);
+  el("zones-intro").textContent = key==="NONE"
+    ? "Aucune de tes zones ne descend sous le seuil qui signalerait une tension. C'est ce constat, et lui seul, qui donne ton résultat."
+    : "Aucune barre n'est une note. Une barre courte montre l'endroit où ton fonctionnement est le plus sollicité aujourd'hui.";
+
+  renderAlerts(sc, key);
+
+  /* La boucle */
+  renderLoop(prof.loopNode);
+  var cap = document.querySelector(".loop-caption .eyebrow");
+  if(cap) cap.textContent = prof.loopNode ? "Chez toi, elle se referme ici" : "Ce que tes réponses montrent";
+  el("loop-text").textContent = prof.loop1;
+  el("loop-text2").textContent = prof.loop2;
+
+  /* Déclencheurs */
+  var corps = pickedLabels("a9","corps"), tete = pickedLabels("a9","tete");
+  fillTrigger("trig-corps", corps, "Tu n'as rien coché de ce côté. Ce qui se passe chez toi ne part pas d'un retard visible.");
+  fillTrigger("trig-tete", tete, "Tu n'as rien coché de ce côté. Ce qui se passe chez toi ne part pas d'un état particulier.");
+  var read;
+  if(corps.length && tete.length){
+    read = "Les deux sont présents. Dans ce cas, le corps passe devant : tant que le retard est là, on ne peut pas savoir ce qui revient réellement à l'état émotionnel. C'est l'ordre de lecture, pas un classement d'importance.";
+  } else if(corps.length){
+    read = "Uniquement du côté corps. Chez toi, ce qui arrive ensuite est un rattrapage, pas une décision.";
+  } else if(tete.length){
+    read = hasDebt()
+      ? "Uniquement du côté tête — mais tes apports et ton rythme montrent un retard que tu n'as pas relié à ces moments. Les deux produisent exactement la même scène, et le corps passe devant."
+      : "Uniquement du côté tête, sans retard d'apport derrière. C'est ce qui rend ton cas lisible : le levier n'est pas dans l'assiette.";
+  } else {
+    var recurrent = rowIn("a10","frequence",["weekly","often"]);
+    read = recurrent
+      ? "Tu n'as rien coché des deux côtés, alors que les écarts, eux, reviennent. C'est une information en soi : ce qui les déclenche chez toi n'est ni un retard d'apport ni un état identifié. Reste le cadre lui-même — et ce que tu en fais juste après."
+      : "Tu n'as rien coché des deux côtés. C'est cohérent avec un fonctionnement où l'écart n'est pas encore un sujet.";
+  }
+  el("trig-read").textContent = read;
+
+  /* Le levier */
+  renderLever();
+  el("lever-why").textContent = prof.leverWhy;
+
+  /* Erreurs et chantiers */
+  fillList("res-erreurs", prof.erreurs);
+  var plan = PLANS[key], ph = el("plan-host"); ph.innerHTML = "";
+  for(var c=0;c<plan.actions.length;c++){
+    var rowEl = document.createElement("div"); rowEl.className = "chantier";
+    var num = document.createElement("span"); num.className = "num"; num.textContent = String(c+1);
+    var body = document.createElement("div");
+    var h3 = document.createElement("h3"); h3.textContent = plan.actions[c][0];
+    var pa = document.createElement("p"); pa.textContent = plan.actions[c][1];
+    body.appendChild(h3); body.appendChild(pa);
+    rowEl.appendChild(num); rowEl.appendChild(body); ph.appendChild(rowEl);
+  }
+  var wall = el("plan-wall"); wall.innerHTML = "";
+  var wp = document.createElement("p"); wp.textContent = plan.wall; wall.appendChild(wp);
+
+  refreshWhatsApp();
+
+  progress.result = true;
+  pushToSheet({ evenement:"resultat_affiche" });
+
+  showScreen("results");
+  window.scrollTo({ top:0, behavior:"auto" });
+  setTimeout(function(){ animateResults(donut.value); }, 120);
+}
+
+function renderAlerts(sc, key){
+  var host = el("alerts-host"), block = el("alerts-block"), shown = 0;
+  host.innerHTML = "";
+  for(var i=0;i<ALERTS.length && shown<2;i++){
+    var A = ALERTS[i];
+    if(!A.test(sc, key)) continue;
+    shown++;
+    var box = document.createElement("div"); box.className = "alert";
+    var eb = document.createElement("span"); eb.className = "eyebrow"; eb.textContent = "À ne pas laisser de côté"; box.appendChild(eb);
+    var h = document.createElement("h3"); h.textContent = A.title; box.appendChild(h);
+    var p = document.createElement("p"); p.textContent = A.body; box.appendChild(p);
+    if(A.legal){ var lg = document.createElement("p"); lg.className = "alert-legal"; lg.textContent = A.legal; box.appendChild(lg); }
+    host.appendChild(box);
+  }
+  block.style.display = shown ? "" : "none";
+}
+
+function countUp(node, duration){
+  var target = parseInt(node.getAttribute("data-target"), 10);
+  if(isNaN(target)) return;
+  if(reducedMotion() || !window.requestAnimationFrame){ node.textContent = target + " %"; return; }
+  var start = null;
+  function step(ts){
+    if(start===null) start = ts;
+    var p = Math.min(1, (ts-start)/duration);
+    node.textContent = Math.round(target * (1 - Math.pow(1-p, 3))) + " %";
+    if(p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+function fillBlock(node){
+  node.classList.add("is-in");
+  var bars = node.querySelectorAll(".zone-bar"), b;
+  for(b=0;b<bars.length;b++) bars[b].style.width = bars[b].getAttribute("data-target") + "%";
+  var nums = node.querySelectorAll("[data-target]");
+  for(b=0;b<nums.length;b++){ if(!nums[b].classList.contains("zone-bar")) countUp(nums[b], 1150); }
+}
+var revealObserver = null;
+function animateResults(v){
+  el("donut-bar").style.strokeDashoffset = String(326.7 * (1 - v/100));
+  var blocks = document.querySelectorAll(".reveal"), i;
+  if(revealObserver){ revealObserver.disconnect(); revealObserver = null; }
+  if("IntersectionObserver" in window){
+    revealObserver = new IntersectionObserver(function(entries){
+      for(var e=0;e<entries.length;e++){
+        if(entries[e].isIntersecting){ fillBlock(entries[e].target); revealObserver.unobserve(entries[e].target); }
+      }
+    }, { threshold:0.14, rootMargin:"0px 0px -40px 0px" });
+    for(i=0;i<blocks.length;i++) revealObserver.observe(blocks[i]);
+  } else {
+    for(i=0;i<blocks.length;i++) fillBlock(blocks[i]);
+  }
+}
+
+/* ============================================================
+   19. WHATSAPP — message écrit de son point de vue.
+   Le numéro n'est jamais affiché.
+   ============================================================ */
+function readField(id){ var n = el(id); return n && n.value ? n.value.trim() : ""; }
+function normInsta(v){
+  if(!v) return "";
+  v = v.replace(/^https?:\/\/(www\.)?instagram\.com\//i, "").replace(/[\/?#].*$/, "").replace(/\s+/g, "");
+  if(!v || v==="@") return "";
+  return v.charAt(0)==="@" ? v : "@" + v;
+}
+function messageParts(){
+  var prof = (state.result && state.result.prof) ? state.result.prof : null;
+  var prenom = readField("wa-prenom"), insta = normInsta(readField("wa-insta"));
+  var parts = [{ t:"Salut Kevin, " }];
+  if(prenom && insta){ parts.push({t:"c'est "},{t:prenom,fill:true},{t:" ("},{t:insta,fill:true},{t:"). "}); }
+  else if(prenom){ parts.push({t:"c'est "},{t:prenom,fill:true},{t:". "}); }
+  else if(insta){ parts.push({t:"c'est "},{t:insta,fill:true},{t:" sur Instagram. "}); }
+  parts.push({ t:(prenom||insta ? "Je" : "je") + " viens de faire ton test sur la relation à l'alimentation, je tombe sur le profil " });
+  parts.push({ t: prof ? prof.name : "", fill:true });
+  parts.push({ t:". Il y a un point que j'aimerais te poser sur mon cas — tu as deux minutes ?" });
+  return parts;
+}
+function stopMessageParts(){
+  var prenom = readField("stop-prenom");
+  var parts = [{ t:"Salut Kevin, " }];
+  if(prenom) parts.push({t:"c'est "},{t:prenom,fill:true},{t:". "});
+  parts.push({ t:(prenom ? "Je" : "je") + " viens de faire ton test sur la relation à l'alimentation. Il m'a dit que ce qui se joue chez moi se travaille, mais pas toute seule — j'aimerais bien qu'on en parle." });
+  return parts;
+}
+function partsToString(p){ var s = ""; for(var i=0;i<p.length;i++) s += p[i].t; return s; }
+function renderPreview(hostId, parts){
+  var host = el(hostId); host.innerHTML = "";
+  for(var i=0;i<parts.length;i++){
+    var sp = document.createElement("span");
+    if(parts[i].fill) sp.className = "fill";
+    sp.textContent = parts[i].t;
+    host.appendChild(sp);
+  }
+}
+function waHref(text){ return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text); }
+function refreshWhatsApp(){
+  var p = messageParts();
+  el("wa-btn").setAttribute("href", waHref(partsToString(p)));
+  renderPreview("wa-preview", p);
+}
+function refreshStopWhatsApp(){
+  var p = stopMessageParts();
+  el("stop-wa-btn").setAttribute("href", waHref(partsToString(p)));
+  renderPreview("stop-preview", p);
+}
+function onWhatsAppClick(){
+  refreshWhatsApp();
+  progress.waClick = true;
+  pushToSheet({ evenement:"clic_whatsapp", prenom:readField("wa-prenom"), instagram:readField("wa-insta") });
+}
+function onStopWhatsAppClick(){
+  refreshStopWhatsApp();
+  progress.waClick = true;
+  pushToSheet({ evenement:"clic_whatsapp_sortie", prenom:readField("stop-prenom") });
+}
+
+/* ============================================================
+   20. GOOGLE SHEETS — même endpoint que les quiz précédents.
+   Colonnes préfixées a1_… et zone_Z1… : rien n'écrase les
+   colonnes des autres quiz, `source` les sépare.
+   ============================================================ */
+function answerLabel(q, a){
+  var out = [], i, j;
+  if(q.type==="single"){ var o = findOption(q,a); return o ? o.label : ""; }
+  if(q.type==="rows"){
+    for(i=0;i<q.rows.length;i++){ var r = q.rows[i]; var ro = a[r.id] ? findOption(q,a[r.id],r.id) : null; if(ro) out.push(ro.label); }
+    return out.join(" | ");
+  }
+  if(q.type==="groups"){
+    for(i=0;i<q.groups.length;i++){
+      var g = q.groups[i], ga = a[g.id], sub = [];
+      if(Array.isArray(ga)){ for(j=0;j<ga.length;j++){ var go = findOption(q,ga[j],g.id); if(go) sub.push(go.label); } }
+      else if(ga){ var so = findOption(q,ga,g.id); if(so) sub.push(so.label); }
+      if(sub.length) out.push(g.label + " : " + sub.join(", "));
+    }
+    return out.join(" | ");
+  }
+  if(q.type==="multi"){ for(i=0;i<a.length;i++){ var mo = findOption(q,a[i]); if(mo) out.push(mo.label); } return out.join(" | "); }
+  if(q.type==="rank"){
+    if(a.bypass) return q.bypass.label;
+    for(i=0;i<a.ranked.length;i++){ var ko = findOption(q,a.ranked[i]); if(ko) out.push((i+1) + ". " + ko.label); }
+    return out.join(" | ");
+  }
+  return "";
+}
+
+function buildPayload(extra){
+  var res = state.result, fd = new FormData(), i;
+  fd.append("visite_id", VISITE.visite_id);
+  fd.append("id_contact", VISITE.id_contact);
+  fd.append("source_lien", VISITE.source);
+  fd.append("source", QUIZ_SOURCE);
+  fd.append("contact_prenom", CONTACT.prenom);
+  fd.append("contact_nom", CONTACT.nom);
+  fd.append("contact_whatsapp", CONTACT.tel);
+  fd.append("profil", (res && res.prof) ? res.prof.name : (res && res.key==="STOP" ? "Écran de sortie" : ""));
+  fd.append("profil_cle", res ? res.key : "");
+  if(res){
+    for(i=0;i<ZONES.length;i++) fd.append("zone_" + ZONES[i].id, String(res.scores.finalZones[ZONES[i].id]));
+    if(res.donut) fd.append("stabilite", String(res.donut.value));
+    fd.append("sortie_raison", res.reason || "");
+    fd.append("reponses_inconnues", String(res.scores.unknown));
+    /* Gradation de l'épisode : pour la lecture du Sheet côté coach.
+       Elle n'apparaît nulle part à l'écran et ne porte aucun nom. */
+    fd.append("intensite_episode", String(res.scores.intensite));
+    fd.append("scores_profils", JSON.stringify(res.scores.prof));
+  }
+  for(i=0;i<QUESTIONS.length;i++){
+    var q = QUESTIONS[i], a = state.answers[q.id];
+    fd.append(q.id + "_" + q.key, (a===undefined || a===null) ? "" : answerLabel(q, a));
+  }
+  if(extra){ for(var k in extra){ if(own(extra,k)) fd.append(k, extra[k]); } }
+  return fd;
+}
+
+var VISITE = (function(){
+  var v = { visite_id:"", id_contact:"", source:"" }, chars = "abcdefghijklmnopqrstuvwxyz0123456789", i;
+  for(i=0;i<10;i++) v.visite_id += chars.charAt(Math.floor(Math.random()*chars.length));
+  var q = window.location.search.replace(/^\?/, "").split("&"), params = {};
+  for(i=0;i<q.length;i++){
+    if(!q[i]) continue;
+    var kv = q[i].split("=");
+    try { params[decodeURIComponent(kv[0])] = decodeURIComponent((kv[1]||"").replace(/\+/g," ")); }
+    catch(e){ params[kv[0]] = kv[1] || ""; }
+  }
+  v.id_contact = params.id || params.contact || params.cid || "";
+  v.source = params.src || params.utm_source || params.utm_campaign || params.utm_content || "";
+  return v;
+})();
+
+var CONTACT = { prenom:"", nom:"", tel:"" };
+function normPhone(){
+  var cc = el("id-indicatif").value;
+  var raw = readField("id-tel").replace(/[^0-9+]/g, "").replace(/\+/g, "").replace(/^00/, "");
+  if(cc==="") return raw.replace(/^0+/, "");
+  if(raw.indexOf(cc)===0 && raw.length > cc.length + 6) raw = raw.slice(cc.length);
+  return cc + raw.replace(/^0+/, "");
+}
+function validateIdentite(){
+  if(readField("id-prenom").length < 2) return "Il me faut ton prénom.";
+  if(readField("id-nom").length < 2) return "Il me faut ton nom.";
+  var tel = normPhone();
+  if(tel.length < 8 || tel.length > 15) return "Ce numéro ne semble pas complet. Vérifie-le.";
+  return "";
+}
+
+var progress = { started:false, maxQuestion:0, result:false, waClick:false, exitSent:false };
+
+function endpointReady(){ return SHEETS_ENDPOINT && SHEETS_ENDPOINT.indexOf("A_REMPLACER")===-1; }
+function pushToSheet(extra){
+  if(window.RECODE_TEST){ (window.RECODE_SENT = window.RECODE_SENT || []).push(extra.evenement); return; }
+  if(!endpointReady()) return;
+  try { var r = fetch(SHEETS_ENDPOINT, { method:"POST", mode:"no-cors", keepalive:true, body:buildPayload(extra) }); if(r && r.catch) r.catch(function(){}); } catch(e){}
+}
+function pushBeacon(extra){
+  if(window.RECODE_TEST){ (window.RECODE_SENT = window.RECODE_SENT || []).push(extra.evenement); return; }
+  if(!endpointReady()) return;
+  var fd = buildPayload(extra);
+  if(navigator.sendBeacon){ try { if(navigator.sendBeacon(SHEETS_ENDPOINT, fd)) return; } catch(e){} }
+  try { var r = fetch(SHEETS_ENDPOINT, { method:"POST", mode:"no-cors", keepalive:true, body:fd }); if(r && r.catch) r.catch(function(){}); } catch(e){}
+}
+function handleExit(){
+  if(progress.exitSent || !progress.started) return;
+  if(!progress.result){
+    progress.exitSent = true;
+    pushBeacon({ evenement:"abandon", derniere_question:String(progress.maxQuestion) });
+    return;
+  }
+  if(!progress.waClick){
+    var pre = readField("wa-prenom") || readField("stop-prenom"), ins = readField("wa-insta");
+    if(pre || ins){ progress.exitSent = true; pushBeacon({ evenement:"quitte_sans_clic", prenom:pre, instagram:ins }); }
+  }
+}
+
+/* ============================================================
+   21. INITIALISATION
+   ============================================================ */
+function submitIdentite(){
+  var msg = validateIdentite(), err = el("id-err");
+  if(msg){ err.textContent = msg; err.className = "id-err on"; return; }
+  err.className = "id-err"; err.textContent = "";
+  CONTACT.prenom = readField("id-prenom");
+  CONTACT.nom = readField("id-nom");
+  CONTACT.tel = normPhone();
+  var wp = el("wa-prenom"); if(wp && !wp.value) wp.value = CONTACT.prenom;
+  var sp = el("stop-prenom"); if(sp && !sp.value) sp.value = CONTACT.prenom;
+  progress.started = true;
+  pushToSheet({ evenement:"demarrage" });   // le numéro est récupéré même en cas d'abandon
+  startQuiz();
+}
+function startQuiz(){
+  clearAnalysis();
+  state.index = 0;
+  showScreen("quiz"); renderQuestion();
+  window.scrollTo({ top:0, behavior:"auto" }); focusTitle();
+}
+function restart(){
+  clearAnalysis();
+  state = { index:0, answers:{}, result:null };
+  progress.result = false; progress.waClick = false; progress.maxQuestion = 0;
+  var blocks = document.querySelectorAll(".reveal");
+  for(var i=0;i<blocks.length;i++) blocks[i].classList.remove("is-in");
+  el("donut-bar").style.strokeDashoffset = "326.7";
+  startQuiz();
+}
+function init(){
+  el("brand-link").addEventListener("click", function(e){ e.preventDefault(); });
+  el("start-btn").addEventListener("click", submitIdentite);
+  el("next-btn").addEventListener("click", goNext);
+  el("back-btn").addEventListener("click", goBack);
+  el("restart-btn").addEventListener("click", restart);
+  el("wa-btn").addEventListener("click", onWhatsAppClick);
+  el("stop-wa-btn").addEventListener("click", onStopWhatsAppClick);
+  el("wa-prenom").addEventListener("input", function(){ if(state.result) refreshWhatsApp(); });
+  el("wa-insta").addEventListener("input", function(){ if(state.result) refreshWhatsApp(); });
+  el("stop-prenom").addEventListener("input", refreshStopWhatsApp);
+  window.addEventListener("pagehide", handleExit);
+  document.addEventListener("visibilitychange", function(){ if(document.visibilityState==="hidden") handleExit(); });
+}
+if(document.readyState==="loading") document.addEventListener("DOMContentLoaded", init); else init();
+
+/* ============================================================
+   22. SIMULATION — console : RECODE_run({...})
+   ============================================================ */
+window.RECODE_run = function(answers){
+  var saved = state.answers;
+  state.answers = answers;
+  var stop = isHardStop(), clusters = hardStopClusters();
+  var sc = computeScores(), pick = pickProfil(sc), d = computeDonut(sc);
+  state.answers = saved;
+  return { sortie_dure:stop, grappes:clusters,
+           key:pick.key, profil:PROFILS[pick.key].name, raison:pick.reason,
+           stabilite:d.value, prof:sc.prof, zones:sc.finalZones, inconnues:sc.unknown };
+};
+</script>
+</body>
+</html>
